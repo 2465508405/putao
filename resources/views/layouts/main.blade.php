@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>layui后台管理模板</title>
+	<title></title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -11,9 +11,9 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="favicon.ico">
-	<link rel="stylesheet" href="layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="/css/font_eolqem241z66flxr.css" media="all" />
-	<link rel="stylesheet" href="css/main.css" media="all" />
+	<link rel="stylesheet" href="/css/main.css" media="all" />
 </head>
 <body class="main_body">
 	<div class="layui-layout layui-layout-admin">
@@ -137,9 +137,9 @@
 	<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 	<div class="site-mobile-shade"></div>
 
-	<script type="text/javascript" src="layui/layui.js"></script>
-	<script type="text/javascript" src="js/nav.js"></script>
-	<script type="text/javascript" src="js/leftNav.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="/layui/layui.js"></script>
+	<script type="text/javascript" src="/js/nav.js"></script>
+	<script type="text/javascript" src="/js/leftNav.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
 </body>
 </html>
