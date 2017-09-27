@@ -1,6 +1,6 @@
 var $,tab,skyconsWeather;
 layui.config({
-	base : "js/"
+	base : "/js/"
 }).use(['bodyTab','form','element','layer','jquery'],function(){
 	var form = layui.form(),
 		layer = layui.layer,
@@ -59,10 +59,10 @@ layui.config({
 	});
 
 	// 添加新窗口
-	$(".layui-nav .layui-nav-item a").on("click",function(){
-		addTab($(this));
-		$(this).parent("li").siblings().removeClass("layui-nav-itemed");
-	})
+	// $(".layui-nav .layui-nav-item a").on("click",function(){
+	// 	// addTab($(this));
+	// 	$(this).parent("li").siblings().removeClass("layui-nav-itemed");
+	// })
 
 	//公告层
 	function showNotice(){
@@ -137,18 +137,4 @@ layui.config({
 //打开新窗口
 function addTab(_this){
 	tab.tabAdd(_this);
-}
-
-//捐赠弹窗
-function donation(){
-	layer.tab({
-		area : ['260px', '367px'],
-		tab : [{
-			title : "微信",
-			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/wechat.jpg'></div>"
-		},{
-			title : "支付宝",
-			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/alipay.jpg'></div>"
-		}]
-	})
 }

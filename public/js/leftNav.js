@@ -20,7 +20,7 @@ function navBar(data){
 			ulHtml += '</a>'
 			ulHtml += '<dl class="layui-nav-child">';
 			for(var j=0;j<data[i].children.length;j++){
-				ulHtml += '<dd><a href="javascript:;" data-url="'+data[i].children[j].href+'">';
+				ulHtml += '<dd><a href="'+data[i].children[j].href+'" data-url="'+data[i].children[j].href+'">';
 				if(data[i].children[j].icon != undefined && data[i].children[j].icon != ''){
 					if(data[i].children[j].icon.indexOf("icon-") != -1){
 						ulHtml += '<i class="iconfont '+data[i].children[j].icon+'" data-icon="'+data[i].children[j].icon+'"></i>';

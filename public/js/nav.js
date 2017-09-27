@@ -4,10 +4,24 @@ var navs = [{
 	"href" : "page/main.html",
 	"spread" : false
 },{
-	"title" : "文章列表",
+	"title" : "文章管理",
 	"icon" : "icon-text",
 	"href" : "page/news/newsList.html",
-	"spread" : false
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "文章列表",
+			"icon" : "&#xe631;",
+			"href" : "/article/list",
+			"spread" : false
+		},
+		{
+			"title" : "添加文章",
+			"icon" : "&#xe631;",
+			"href" : "/article/add",
+			"spread" : false
+		}
+	]
 },{
 	"title" : "友情链接",
 	"icon" : "icon-text",
@@ -32,7 +46,7 @@ var navs = [{
 		{
 			"title" : "二级菜单1",
 			"icon" : "&#xe631;",
-			"href" : "",
+			"href" : "/",
 			"spread" : false
 		},
 		{
