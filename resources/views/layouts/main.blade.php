@@ -1,89 +1,242 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
 	@yield('title')
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta http-equiv="Access-Control-Allow-Origin" content="*">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="icon" href="favicon.ico">
-	<link rel="stylesheet" href="/layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="/css/font_eolqem241z66flxr.css" media="all" />
-	<link rel="stylesheet" href="/css/main.css" media="all" />
-	<link rel="stylesheet" href="/css/news.css" media="all" />
+	<meta name="description" content="This is page-header (.page-header &gt; h1)" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace.min.css" id="main-ace-style" />
+	<link rel="stylesheet" href="/assets/css/ace-part2.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace-ie.min.css" />
+	<script src="/assets/js/html5shiv.min.js"></script>
+	<script src="/assets/js/respond.min.js"></script>
 </head>
-<body class="main_body">
-<div class="layui-layout layui-layout-admin">
-	<!-- 顶部 -->
-	<div class="layui-header header">
-		<div class="layui-main">
-			<a href="" class="logo">后台管理</a>
-			<!-- 搜索 -->
-			<div class="layui-form component">
-				<i class="layui-icon">&#xe615;</i>
-			</div>
-			<!-- 顶部右侧菜单 -->
-			<ul class="layui-nav top_menu">
-				<li class="layui-nav-item showNotice" id="showNotice" pc>
-					<a href="javascript:;"><i class="iconfont icon-gonggao"></i><cite>系统公告</cite></a>
-				</li>
-				<li class="layui-nav-item" mobile>
-					<a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
-				</li>
-				<li class="layui-nav-item" mobile>
-					<a href="javascript:;"><i class="iconfont icon-loginout"></i> 退出</a>
-				</li>
-				<li class="layui-nav-item lockcms" pc>
-					<a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
-				</li>
-				<li class="layui-nav-item" pc>
-					<a href="javascript:;">
-						<img src="images/face.jpg" class="layui-circle" width="35" height="35">
-						<cite>请叫我马哥</cite>
+
+<body class="no-skin">
+<div id="navbar" class="navbar navbar-default">
+	<div class="navbar-container" id="navbar-container">
+
+		<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+			<span class="sr-only">Toggle sidebar</span>
+
+			<span class="icon-bar"></span>
+
+			<span class="icon-bar"></span>
+
+			<span class="icon-bar"></span>
+		</button>
+
+		<!-- /section:basics/sidebar.mobile.toggle -->
+		<div class="navbar-header pull-left">
+			<!-- #section:basics/navbar.layout.brand -->
+			<a href="index.html" class="navbar-brand">
+				<small>
+					<img src="/assets/avatars/logo.png" alt="" />
+				</small>
+			</a>
+		</div>
+
+		<div class="navbar-buttons navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav">
+
+				<li class="green">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+						<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
+						<span class="badge badge-success">5</span>
 					</a>
-					<dl class="layui-nav-child">
-						<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
-						<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-						<dd><a class="userLogout" href="logout"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
-					</dl>
+
+					<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+						<li class="dropdown-header">
+							<i class="ace-icon fa fa-envelope-o"></i>
+							13条未读信息
+						</li>
+
+						<li class="dropdown-content">
+							<ul class="dropdown-menu dropdown-navbar">
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+												<span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">B2C:</span>
+														系统产生20个错误，12个警告...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>2014-12-15 18:00:00</span>
+													</span>
+												</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+												<span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">积分商城:</span>
+														系统产生20个错误，12个警告...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>2014-12-15 18:00:00</span>
+													</span>
+												</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+												<span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">政府机票采购:</span>
+														系统产生20个错误，12个警告...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>2014-12-15 18:00:00</span>
+													</span>
+												</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="/assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+												<span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">B2B:</span>
+														系统产生20个错误，12个警告...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>2014-12-15 18:00:00</span>
+													</span>
+												</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<img src="assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+												<span class="msg-body">
+													<span class="msg-title">
+														<span class="blue">货运系统:</span>
+														系统产生20个错误，12个警告...
+													</span>
+
+													<span class="msg-time">
+														<i class="ace-icon fa fa-clock-o"></i>
+														<span>2014-12-15 18:00:00</span>
+													</span>
+												</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="dropdown-footer">
+							<a href="inbox.html">
+								查看全部消息
+								<i class="ace-icon fa fa-arrow-right"></i>
+							</a>
+						</li>
+					</ul>
 				</li>
+
+				<!-- #section:basics/navbar.user_menu -->
+				<li class="light-blue">
+					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+						<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									欢迎您<br />
+									陈子昂
+								</span>
+
+						<i class="ace-icon fa fa-caret-down"></i>
+					</a>
+
+					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<li>
+							<a href="#">
+								<i class="ace-icon fa fa-cog"></i>
+								系统设置
+							</a>
+						</li>
+
+						<li>
+							<a href="profile.html">
+								<i class="ace-icon fa fa-user"></i>
+								个人信息设置
+							</a>
+						</li>
+
+						<li class="divider"></li>
+
+						<li>
+							<a href="#">
+								<i class="ace-icon fa fa-power-off"></i>
+								登出
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!-- /section:basics/navbar.user_menu -->
 			</ul>
 		</div>
+
+		<!-- /section:basics/navbar.dropdown -->
 	</div>
-	<!-- 左侧导航 -->
-	@include('layouts.leftmenu');
-	<!-- 右侧内容 -->
+</div>
+
+<div class="main-container" id="main-container">
+
+	<!-- left-->
+	@include('layouts.leftmenu')
+
 	@yield('content')
-	<!-- 底部 -->
-	<div class="layui-footer footer">
-
+	<div class="footer">
+		<div class="footer-inner">
+			<div class="footer-content">
+						<span class="bigger-120">
+							 统一开发平台-UI库 &copy; 2014  更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>
+						</span>
+			</div>
+		</div>
 	</div>
+
+	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+		<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+	</a>
 </div>
 
-<!-- 锁屏 -->
-<div class="admin-header-lock" id="lock-box" style="display: none;">
-	<div class="admin-header-lock-img"><img src="images/face.jpg"/></div>
-	<div class="admin-header-lock-name" id="lockUserName">请叫我马哥</div>
-	<div class="input_btn">
-		<input type="password" class="admin-header-lock-input layui-input" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />
-		<button class="layui-btn" id="unlock">解锁</button>
-	</div>
-	<p>请输入“123456”，否则不会解锁成功哦！！！</p>
-</div>
-<!-- 移动导航 -->
-<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
-<div class="site-mobile-shade"></div>
-
-<script type="text/javascript" src="/layui/layui.js"></script>
-<script type="text/javascript" src="/js/nav.js"></script>
-<script type="text/javascript" src="/js/leftNav.js"></script>
-<script type="text/javascript" src="/js/index.js"></script>
-<script src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript">
+	window.jQuery || document.write("<script src='/assets/js/jquery.min.js'>"+"<"+"/script>");
+</script>
+<script type="text/javascript">
+	window.jQuery || document.write("<script src='/assets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<script type="text/javascript">
+	if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/excanvas.min.js"></script>
+<script src="/assets/js/jquery-ui.custom.min.js"></script>
+<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="/assets/js/ace.min.js"></script>
+@yield('css')
 @yield('script')
 </body>
 </html>

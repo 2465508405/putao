@@ -23,10 +23,10 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        return view('news.newsList');
+        return view('articles.list');
     }
 
     public function add(Request $request){
-        return view('news.newsAdd');
+        return view('articles.add');
     }
 }
