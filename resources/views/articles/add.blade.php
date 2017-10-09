@@ -76,8 +76,9 @@
                                 <input type="file" name="test[]" id="test"/><img src="" class="images" id="img" style="width:120px;">
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">文章内容： </label>
-
+                                 <textarea id="container" autocomplete="off"  name="content"
+                                           type="text/plain">
+                            </textarea>
                             </div>
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-5 col-md-9">
@@ -95,6 +96,11 @@
     </div>
 @endsection
 @section('script')
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
     <!-- page specific plugin scripts -->
     <script src="/js/upload.js"></script>
     <script>
@@ -125,4 +131,14 @@
 
 @endsection
 @section('css')
+    <style>
+        #navbar{
+            width:1250px;
+        }
+        #main-container{
+            width:1200px;
+            margin: 0px;
+            padding:0px;
+        }
+    </style>
 @endsection
