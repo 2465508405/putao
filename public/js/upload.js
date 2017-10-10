@@ -87,7 +87,7 @@
                     alert(base64);
                 }
                 o.before(base64);
-                //_ajaximg(base64,file.type);
+                _ajaximg(base64,file.type);
             };
         }
 
