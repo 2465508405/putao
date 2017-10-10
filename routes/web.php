@@ -15,6 +15,7 @@
     Route::get('logout', 'Auth\LoginController@logout');
     Route::get('article/list', 'Article\ArticleController@index');
     Route::get('article/add', 'Article\ArticleController@add');
+    Route::post('article/upload', 'Article\ArticleController@upload');
 //});
 //Route::post('auth/login','Auth\LoginController@postLogin');
 //Auth::routes();
