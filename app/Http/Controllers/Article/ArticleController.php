@@ -33,7 +33,7 @@ class ArticleController extends Controller
     /*
      *标题图上传
      */
-    public function pasteUpload($pic, $item,$subDirectory='')
+    public function upload($pic, $item,$subDirectory='')
     {
         $file =$pic;
         $seg = explode(";",$file);
@@ -67,7 +67,7 @@ class ArticleController extends Controller
         }
         $y= date("Ym");
         if (!$subDirectory) {
-            $subDirectory = date("Ym/dH/");
+            $subDirectory = date("Ym/d/");
         }
         $destDirectory = $this->getUploadDirectory() . $subDirectory;
         if (!file_exists($destDirectory)) {
@@ -78,7 +78,7 @@ class ArticleController extends Controller
         $filename = $this->buildPasteFileName($extension);
         file_put_contents($destDirectory.$filename,$real_data);
         $clientSize = filesize($destDirectory.$filename);
-        return DIRECTORY_SEPARATOR.$subDirectory . $filename;
+        return  'thumb/' . DIRECTORY_SEPARATOR . $subDirectory . $filename;
     }
 
     private function buildPasteFileName($extension){
@@ -86,6 +86,6 @@ class ArticleController extends Controller
         return $fi.'.'.$extension;
     }
     private function getUploadDirectory(){
-        return '/Users/yangzhengxing/project/images/';
+        return '/Users/yangzhengxing/project/images/thumb/';
     }
 }
