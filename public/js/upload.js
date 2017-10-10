@@ -92,7 +92,8 @@
         }
 
         function _ajaximg(base64,type,file){
-            $.post(o.url,{base64:base64,type:type},function(res){
+            var _token = $("#_token").val();
+            $.post(o.url,{base64:base64,type:type,_token:_token},function(res){
                 var res = eval('(' + res + ')');
                 if(res.status == 1){
                     o.error(res.msg);

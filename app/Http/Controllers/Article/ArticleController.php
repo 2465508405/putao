@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Article;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 class ArticleController extends Controller
 {
     /**
@@ -31,11 +32,24 @@ class ArticleController extends Controller
     }
 
     /*
+     * 添加文章
+     */
+    public function postCreate(Request $request){
+        $article = new Article();
+        $article->title = $request->input('title');
+        $article->description = $request->input('detail');
+        $article->content = $request->input('content');
+        $article->thumbPic = $request->input('imgurl');
+        if($article->save()){
+            return redirect('/');
+        }
+    }
+    /*
      *标题图上传
      */
-    public function upload($pic, $item,$subDirectory='')
+    public function upload(Request $request)
     {
-        $file =$pic;
+        $file =$request->input('base64');
         $seg = explode(";",$file);
         if(sizeof($seg)!=2){
             return resError(400,"wrong paramater" );
@@ -66,9 +80,7 @@ class ArticleController extends Controller
             return resError(402,"parse data failed");
         }
         $y= date("Ym");
-        if (!$subDirectory) {
             $subDirectory = date("Ym/d/");
-        }
         $destDirectory = $this->getUploadDirectory() . $subDirectory;
         if (!file_exists($destDirectory)) {
             mkdir($destDirectory, 0777, true);
@@ -78,7 +90,7 @@ class ArticleController extends Controller
         $filename = $this->buildPasteFileName($extension);
         file_put_contents($destDirectory.$filename,$real_data);
         $clientSize = filesize($destDirectory.$filename);
-        return  'thumb/' . DIRECTORY_SEPARATOR . $subDirectory . $filename;
+        return  json_encode(['status'=>0,'imgurl'=>'/thumb/' . DIRECTORY_SEPARATOR . $subDirectory . $filename]);
     }
 
     private function buildPasteFileName($extension){

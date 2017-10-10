@@ -20,7 +20,7 @@
 
             <!-- #section:basics/content.searchbox -->
             <div class="nav-search" id="nav-search">
-                <form class="form-search">
+                <form class="form-search" action="/article/postCreate" method="post">
 							<span class="input-icon">
 								<input type="text" placeholder="请输入关键字 ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
 								<i class="ace-icon fa fa-search nav-search-icon"></i>
@@ -32,18 +32,18 @@
             <div class="page-content-area">
                 <div class="row">
                     <div class="col-xs-12">
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" action="/article/postCreate" method="post">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 标题：</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" id="form-field-1" placeholder="输入部门名称" class="col-xs-10 col-sm-5" />
+                                    <input type="text" id="form-field-1" placeholder="输入部门名称" name="title" class="col-xs-10 col-sm-5" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1">文章描述： </label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="form-field-1-1" placeholder="输入差旅单名称" class=" col-xs-10 col-sm-5" />
+                                    <input type="text" id="form-field-1-1" name="detail" placeholder="输入差旅单名称" class=" col-xs-10 col-sm-5" />
                                 </div>
                             </div>
 
@@ -52,7 +52,7 @@
                                 <label class="col-sm-3 control-label no-padding-right">文章分类：</label>
                                 <div class="col-sm-9">
                                     <span class="input-icon">
-                                        <select class="form-control" id="form-field-select-1">
+                                        <select class="form-control" id="form-field-select-1" name="class">
                                             <option value="">请选择状态</option>
                                             <option value="AL">未提交</option>
                                             <option value="AK">已提交</option>
@@ -61,12 +61,12 @@
                                         </select>
                                     </span>
                                     <span class="input-icon input-icon-right">
-                                        <select class="form-control" id="form-field-select-1">
+                                        <select class="form-control" id="form-field-select-1" name="status">
                                             <option value="">请选择状态</option>
-                                            <option value="AL">未提交</option>
-                                            <option value="AK">已提交</option>
-                                            <option value="AZ">待审核</option>
-                                            <option value="AR">审核通过</option>
+                                            <option value="0">未提交</option>
+                                            <option value="1">已提交</option>
+                                            <option value="2">待审核</option>
+                                            <option value="3">审核通过</option>
                                         </select>
                                     </span>
                                 </div>
@@ -74,18 +74,18 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right" for="form-field-2">上传标题图: </label>
                                 <input type="file" name="test[]" id="test"/><img src="" class="images" id="img" style="width:120px;">
+                                <input type="hidden" name="imgurl" id="imgurl" value=""/>
                             </div>
                             <div class="form-group">
                                  <textarea id="container" autocomplete="off"  name="content"
                                            type="text/plain">
                             </textarea>
                             </div>
+                            <input type="hidden" value="{{csrf_token()}}" name="_token" id="_token"/>
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-5 col-md-9">
-                                    <button class="btn btn-info" type="button">
+                                    <input type="submit" class="btn btn-info" value="立即提交">
                                         <i class="ace-icon fa fa-check bigger-110"></i>
-                                        立即提交
-                                    </button>
                                 </div>
                             </div>
                         </form>
