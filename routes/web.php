@@ -17,6 +17,11 @@
     Route::get('article/add', 'Article\ArticleController@add');
     Route::post('article/postCreate', 'Article\ArticleController@postCreate');
     Route::post('article/upload', 'Article\ArticleController@upload');
+    Route::get('classify/list', 'Article\ClassifyController@index');
+    Route::get('classify/add', 'Article\ClassifyController@add');
+    Route::get('classify/edit/{id}', 'Article\ClassifyController@edit');
+    Route::post('classify/postCreate', 'Article\ClassifyController@postCreate');
+    Route::post('classify/postEdit', 'Article\ClassifyController@postEdit');
 //});
 //Route::post('auth/login','Auth\LoginController@postLogin');
 //Auth::routes();

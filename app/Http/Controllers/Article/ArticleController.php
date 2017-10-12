@@ -24,13 +24,13 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        return view('articles.list');
+        $artcles = Article::paginate(10);
+        return view('articles.list',['articles'=>$artcles]);
     }
 
     public function add(Request $request){
         return view('articles.add');
     }
-
     /*
      * 添加文章
      */
@@ -41,7 +41,7 @@ class ArticleController extends Controller
         $article->content = $request->input('content');
         $article->thumbPic = $request->input('imgurl');
         if($article->save()){
-            return redirect('/');
+            return redirect('/article/list');
         }
     }
     /*
@@ -90,7 +90,7 @@ class ArticleController extends Controller
         $filename = $this->buildPasteFileName($extension);
         file_put_contents($destDirectory.$filename,$real_data);
         $clientSize = filesize($destDirectory.$filename);
-        return  json_encode(['status'=>0,'imgurl'=>'/thumb/' . DIRECTORY_SEPARATOR . $subDirectory . $filename]);
+        return  json_encode(['status'=>0,'imgurl'=>'/thumb' . DIRECTORY_SEPARATOR . $subDirectory . $filename]);
     }
 
     private function buildPasteFileName($extension){

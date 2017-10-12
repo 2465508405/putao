@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title')
     <title>文章列表</title>
-@endsection
-@section('content')
-        <!-- /section:basics/sidebar -->
+    @endsection
+    @section('content')
+            <!-- /section:basics/sidebar -->
     <div class="main-content">
         <div class="breadcrumbs" id="breadcrumbs">
             <ul class="breadcrumb">
@@ -63,28 +63,27 @@
                                 </table>
 
                                 <div class="table-responsive">
-
+                                    <a class="btn btn-info" href="/classify/add">添加类别</a>
                                     <table id="sample-table-2" class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th>文章标题</th>
-                                            <th>标题图</th>
-                                            <th>创建人</th>
-                                            <th>创建日期</th>
+                                            <th>类别id</th>
+                                            <th>分类名称</th>
+                                            <th>权重</th>
+                                            <th>操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($articles as $article)
-                                        <tr>
-                                            <td>{{$article->title}}</td>
-                                                                                                            <td>{{$article->thumbPic}}</td>
-                                                                                                            <td>{{$article->created_at}}</td>
-                                                                                                            <td>{{$article->created_at}}</td>
-                                        </tr>
+                                        @foreach($classify as $class)
+                                            <tr>
+                                                <td>{{$class->id}}</td>
+                                                <td>{{$class->name}}</td>
+                                                <td>{{$class->weight}}</td>
+                                                <td><a href="/classify/edit/{{$class->id}}">修改</a>|<a href="/classify/del/{{$class->id}}">删除</a></td>
+                                            </tr>
                                         @endforeach
                                         </tbody>
                                     </table>
-
                                     <div class="modal-footer no-margin-top">
 
                                         <ul class="pagination pull-right no-margin">

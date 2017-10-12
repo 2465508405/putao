@@ -143,6 +143,13 @@
 
             <ul class="submenu">
                 <li class="">
+                    <a href="/classify/list">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        文章分类
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li class="">
                     <a href="/article/list">
                         <i class="menu-icon fa fa-caret-right"></i>
                         文章列表

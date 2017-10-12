@@ -85,7 +85,6 @@
                             <div class="clearfix form-actions">
                                 <div class="col-md-offset-5 col-md-9">
                                     <input type="submit" class="btn btn-info" value="立即提交">
-                                        <i class="ace-icon fa fa-check bigger-110"></i>
                                 </div>
                             </div>
                         </form>
