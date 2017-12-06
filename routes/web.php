@@ -11,14 +11,17 @@
 |
 */
 //Route::group(['middleware'=>['auth']],function(){
-    Route::get('/', 'HomeController@index');
-    Route::get('logout', 'Auth\LoginController@logout');
-    Route::get('article/list', 'Article\ArticleController@index');
+    Route::get('/', 'Article\ArticleController@index');
+    Route::get('/article/list', 'Article\ArticleController@index');
     Route::get('article/add', 'Article\ArticleController@add');
     Route::post('article/postCreate', 'Article\ArticleController@postCreate');
-    Route::post('article/upload', 'Article\ArticleController@upload');
+    Route::get('position/list', 'Article\ClassifyController@index');
+    Route::get('position/add', 'Article\ClassifyController@add');
+    Route::post('position/postCreate', 'Article\ClassifyController@postCreate');
+    Route::get('user/list', 'User\UserController@index');
+    Route::get('user/add', 'User\UserController@add');
+    Route::post('user/postCreate', 'User\UserController@postCreate');
 //});
 //Route::post('auth/login','Auth\LoginController@postLogin');
 //Auth::routes();
-
 

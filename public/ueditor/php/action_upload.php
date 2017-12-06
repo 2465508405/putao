@@ -13,7 +13,6 @@ switch (htmlspecialchars($_GET['action'])) {
     case 'uploadimage':
         $config = array(
             "pathFormat" => $CONFIG['imagePathFormat'],
-            "relativePath" => $CONFIG['relativePath'],
             "maxSize" => $CONFIG['imageMaxSize'],
             "allowFiles" => $CONFIG['imageAllowFiles']
         );

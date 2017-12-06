@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\ArticleClassify;
 class ArticleController extends Controller
 {
     /**
@@ -24,11 +25,13 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        return view('articles.list');
+        $articles = Article::paginate(15);
+        return view('articles.list',['articles'=>$articles]);
     }
 
     public function add(Request $request){
-        return view('articles.add');
+        $classify = ArticleClassify::get();
+        return view('articles.add',['classifies'=>$classify]);
     }
 
     /*
@@ -37,11 +40,13 @@ class ArticleController extends Controller
     public function postCreate(Request $request){
         $article = new Article();
         $article->title = $request->input('title');
-        $article->description = $request->input('detail');
+        $article->desc = $request->input('desc');
         $article->content = $request->input('content');
-        $article->thumbPic = $request->input('imgurl');
+        $article->type = $request->input('type');
+        $article->status = $request->input('status');
+        $article->creator_user_id = 1;
         if($article->save()){
-            return redirect('/');
+            return redirect('/article/list');
         }
     }
     /*
