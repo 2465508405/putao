@@ -7,6 +7,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ArticleClassify extends Model
 {
     use SoftDeletes;
-
     protected $table = 'article_classify';
 }

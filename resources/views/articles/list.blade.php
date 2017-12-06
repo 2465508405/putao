@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    <title>后台首页</title>
+    <title>文章列表</title>
 @endsection
 @section('content')
     <div class="main" id="mainWrapper">

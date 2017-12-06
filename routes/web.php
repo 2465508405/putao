@@ -21,6 +21,7 @@
     Route::get('user/list', 'User\UserController@index');
     Route::get('user/add', 'User\UserController@add');
     Route::post('user/postCreate', 'User\UserController@postCreate');
+    Route::post('article/upload', 'Article\ArticleController@upload');
 //});
 //Route::post('auth/login','Auth\LoginController@postLogin');
 //Auth::routes();

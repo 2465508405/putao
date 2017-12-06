@@ -33,7 +33,6 @@ class ArticleController extends Controller
         $classify = ArticleClassify::get();
         return view('articles.add',['classifies'=>$classify]);
     }
-
     /*
      * 添加文章
      */
@@ -95,7 +94,7 @@ class ArticleController extends Controller
         $filename = $this->buildPasteFileName($extension);
         file_put_contents($destDirectory.$filename,$real_data);
         $clientSize = filesize($destDirectory.$filename);
-        return  json_encode(['status'=>0,'imgurl'=>'/thumb/' . DIRECTORY_SEPARATOR . $subDirectory . $filename]);
+        return  json_encode(['status'=>0,'imgurl'=>'/thumb' . DIRECTORY_SEPARATOR . $subDirectory . $filename]);
     }
 
     private function buildPasteFileName($extension){
