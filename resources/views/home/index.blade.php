@@ -7,16 +7,8 @@
         <div class="main-l">
             <ul class="main-l-t">
                 @foreach($firstArticles as $firstArticle)
-                <li><a href="/detail/{{$firstArticle->id}}">{{$firstArticle->name}}</a><span>></span></li>
+                <li><a href="/detail/{{$firstArticle->id}}">{{$firstArticle->title}}</a><span>></span></li>
                 @endforeach
-                <li><a href="">夏黑葡萄</a><span>></span></li>
-                <li><a href="">甬优1号</a><span>></span></li>
-                <li><a href="">马陆藤稔葡萄</a><span>></span></li>
-                <li><a href="">巨丰葡萄</a><span>></span></li>
-                <li><a href="">醉金香无核葡萄</a><span>></span></li>
-                <li><a href="">黄蜜葡萄</a><span>></span></li>
-                <li><a href="">阳光玫瑰</a><span>></span></li>
-                <li><a href="">金手指</a><span>></span></li>
             </ul>
         </div>
         <div class="main-c">
@@ -45,7 +37,7 @@
             <div class="main-r-n">
                 <ul>
                     @foreach($fourArticles as $article)
-                    <li><a href="/detail/{{$article->id}}">【公告】{{$article->name}}</a></li>
+                    <li><a href="/detail/{{$article->id}}">【公告】{{$article->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -67,7 +59,7 @@
         <div class="fenlei">
             @foreach($firstArticles as $firstArticle)
             <div class="fenlei-t">
-                <a href=""><img src="{{env('IMG_URL')}}/{{$firstArticle->thumbPic}}" alt=""></a>
+                <a href="/detail/{{$firstArticle->id}}"><img src="{{env('IMG_URL')}}/{{$firstArticle->thumbPic}}" alt=""></a>
                 <a href=""><h3>{{$firstArticle->title}}</h3></a>
                 <p>市场价：<del>{{$firstArticle->market_price}}</del>元</p>
                 <p>会员价：<span>{{$firstArticle->member_price}}</span>元</p>
@@ -95,7 +87,7 @@
             <div class="news-l-b">
                 <ul>
                     @foreach($articles as $article)
-                    <li><a href="">{{$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
+                    <li><a href="/detail/{{$article->id}}">{{$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
                     @endforeach
 
                 </ul>

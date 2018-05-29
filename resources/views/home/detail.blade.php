@@ -6,9 +6,7 @@
         <div class="news-l">
             <div class="mainLeft">
                 <div class="BreadNav">
-                    {{--<a href="/">马陆葡萄网</a>&nbsp;/&nbsp;--}}
-                    {{--<a href="/">养花精选</a>&nbsp;/&nbsp;<a href="/cyyh">创意养花</a>&nbsp;/&nbsp;--}}
-                    <a class="hover">{{$category->name}}</a>
+                    <a href="/list/{{$category->id}}" class="hover">{{$category->name}}</a>
                 </div>
                 <h1>{{$article->title}}</h1>
                 <div class="font2 adimg">
@@ -58,7 +56,7 @@
                                     <div class="rtext">
                                         <div class="side3_title"><a href="/detail/{{$article->id}}" target="_blank" >{{$article->title}}
                                             </a></div>
-                                        <div class="side3_redu">{{rand(9,1111)}}</div>
+                                        <div class="side3_redu">{{0}}</div>
                                     </div>
                                     <div style="clear:both"></div>
                                 </li>

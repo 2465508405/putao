@@ -9,9 +9,7 @@
         <div class="news-l">
             <div class="mainLeft">
                 <div class="BreadNav">
-                    <a href="/">马陆葡萄网</a>&nbsp;/&nbsp;
-                    <a href="/">养花精选</a>&nbsp;/&nbsp;<a href="/cyyh">创意养花</a>&nbsp;/&nbsp;
-                    <a class="hover">吊兰文竹也能养成瀑布</a>
+                    <a href="/list/{{$category->id}}">{{$category->name}}</a>
                 </div>
                 <ul class="side_class4">
                     @foreach($articles as $article)
@@ -24,9 +22,9 @@
                         <div class="rtext">
                             <div class="side3_title"><a href="/detail/{{$article->id}}" target="_blank" >{{$article->title}}
                                 </a></div>
-                            <div class="side2_title"><a href="" target="_blank" >{{$article->meta_description}}
+                            <div class="side2_title"><a href="/detail/{{$article->id}}" target="_blank" >{{$article->meta_description}}
                                 </a></div>
-                            <div class="side3_redu">{{rand(7,999)}}</div>
+                            <div class="side3_redu">{{0}}</div>
                         </div>
                         <div style="clear:both"></div>
                     </li>
