@@ -80,7 +80,7 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->mobile}}</td>
                                 <td>{{App\Constants\UserStatus::trans($user->status)}}</td>
-                                <td><a href="">删除</a>/<a href="">修改</a></td>
+                                <td><a href="">删除</a>/<a href="/user/edit?id={{$user->id}}">修改</a></td>
                             </tr>
                             @endforeach
                         </table>

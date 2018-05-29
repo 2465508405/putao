@@ -28,14 +28,13 @@ a{
 #sidebar{
 	height:100%;
 	width:160px;
-	border:1px solid green;
 	float:left;
 	position:relative;
 }
 nav.sidebar{
 	height: 100%;
 	overflow: hidden;
-	background-color: #f5f6fa;;
+	background-color: #f5f6fa;
 }
 .sidebar-header{
 	background-color: #f5f6fa;
@@ -93,8 +92,14 @@ ul.menuItems > li ul.side-ul-menu > li > a{
 	padding:0 0 0 15px;
 	text-decoration: none;
 }
-ul.menuItems > li ul.side-ul-menu > li > a:hover{
+ul.menuItems > li ul.side-ul-menu > li > a:hover {
 	color: #23b7e5;
 	background-color: #ffffff;
 	text-decoration: none;
+}
+ul.menuItems > li > ul.side-ul-menu > li.active {
+
+	background-color: #ffffff;
+	color: #23b7e5;
+	border-color: #23b7e5;
 }

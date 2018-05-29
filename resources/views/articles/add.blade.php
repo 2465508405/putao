@@ -37,10 +37,18 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
+                                        <label for="case_foreman_id">标题图:</label>
+                                    </th>
+                                    <td style="width:90%;">                                                                                      <input type="file" name="thumbPic" class="" id="">
+                                        <div class="image_upload"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
                                         <label for="case_foreman_id">描述:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <textarea type="text" rows="4" name="desc" cols="100" class="form-control" id="inputPassword2" placeholder="描述"></textarea>
+                                        <div class="form-group">                                                                 <textarea type="text" rows="4" name="desc" cols="100" class="form-control" id="inputPassword2" placeholder="描述"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -96,18 +104,19 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        var ue = UE.getEditor('editor');
-    </script>
 @endsection
 @section('script')
     <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+    </script>
     <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
     <!-- page specific plugin scripts -->
     <script src="/js/upload.js"></script>
+    <script src="/js/mobileBUGFix.mini.js"></script>
     <script>
-        $('input[name="test[]"]').UploadImg({
+        $("input[name='thumbPic']").UploadImg({
             url : '/article/upload',
             // width : '320',
             //height : '200',
@@ -116,11 +125,9 @@
             mixsize : '10000000',
             //type : 'image/png,image/jpg,image/jpeg,image/pjpeg,image/gif,image/bmp,image/x-png',
             before : function(blob){
-            $('#img').attr('src',blob);
-                var img = '<img class="images" width="100px" height="100px" src="'+blob+'"/>';
-                var inputImg = '<input type="hidden" name="pic[]" value="'+blob+'"/>';
-                $('.uploadImg').append(img);
-                $('.articleForm').append(inputImg);
+                var img = '<div class="img_span">'+'<img src="'+blob+'" class="img"/><span onclick="delImgUrl(this);" class="image_icon"></span></div>';
+                $('.image_upload').append(img);
+                $("input[name='image']").val(img);
             },
             error : function(res){
                 $('#img').attr('src','');
@@ -130,5 +137,39 @@
                 $('#imgurl').val(res);
             }
         });
+        function delImgUrl(obj){
+            $(obj).parent().remove();
+        }
     </script>
+@endsection
+@section('css')
+    <style>
+    .image_upload .img{
+        height:80px;
+        width:80px;
+        margin-left:8px;
+    }
+    .radio-inline input{
+        margin-top:2px;
+    }
+    .img_span{
+        width:80px;
+        float:left;
+        margin-right:10px;
+        position:relative;
+    }
+    .image_icon{
+        background: url(/img/icons.png) no-repeat;
+        width: 24px;
+        height: 24px;
+        display: inline;
+        text-indent: -9999px;
+        overflow: hidden;
+        position:absolute;
+        top:4px;
+        right:-10px;
+        background-position:-46px -25px;
+        cursor: pointer;
+    }
+    </style>
 @endsection

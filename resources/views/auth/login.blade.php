@@ -1,28 +1,61 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>后台登陆系统</title>
-    <link rel="stylesheet" href="css/login.css">
-    <script src="js/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
 </head>
 <body>
-<section class="container">
-    <div class="login">
-        <h1>后台管理系统</h1>
-        <form method="post" onsubmit="return false;">
-            <p><input type="text" class="login" name="login" value="" placeholder="电话或邮箱"></p>
-            {{csrf_field()}}
-            <p><input type="password" class="password" name="password" value="" placeholder="密码"></p>
-            <p class="remember_me">
-                <label>
-                    <input type="checkbox" value="1" name="remember_me" id="remember_me">记住登陆信息
-                </label>
-            </p>
-            <p class="submit"><input type="submit" name="commit" value="登陆"></p>
-        </form>
+<div class="page">
+    <div class="loginwarrp">
+        <div class="logo">后台管理系统登陆</div>
+        <div class="login_form">
+            <form id="Login" name="Login" method="post" onsubmit="" action="/auth/login">
+                <li class="login-item">
+                    <span>用户名：</span>
+                    <input type="text" id="name" name="name" class="login_input" >
+                    <span id="count-msg" class="error"></span>
+                    {{csrf_field()}}
+                </li>
+                <li class="login-item">
+                    <span>密　码：</span>
+                    <input type="password" id="password" name="password" class="login_input" >
+                    <span id="password-msg" class="error"></span>
+                </li>
+                {{--<li class="login-item verify">--}}
+                    {{--<span>验证码：</span>--}}
+                    {{--<input type="text" name="CheckCode" class="login_input verify_input">--}}
+                {{--</li>--}}
+                <div class="clearfix"></div>
+                <li class="login-sub">
+                    <input type="submit" name="Submit" value="登录" />
+                    <input type="reset" name="Reset" value="重置" />
+                </li>
+            </form>
+        </div>
     </div>
-</section>
+</div>
+<script type="text/javascript">
+    window.onload = function() {
+        var config = {
+            vx : 4,
+            vy : 4,
+            height : 2,
+            width : 2,
+            count : 100,
+            color : "121, 162, 185",
+            stroke : "100, 200, 180",
+            dist : 6000,
+            e_dist : 20000,
+            max_conn : 10
+        }
+        CanvasParticle(config);
+    }
+</script>
+<script type="text/javascript" src="/js/canvas-particle.js"></script>
 </body>
-<script src="js/login.js"></script>
 </html>

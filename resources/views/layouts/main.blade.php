@@ -1,31 +1,39 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<meta charset="UTF-8">
 	@yield('title')
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link href="/css/left.css" rel="stylesheet"  />
-	<link href="/css/head.css" rel="stylesheet"/>
-	<link href="/css/main.css" rel="stylesheet"/>
-	<link href="/css/bs.css" rel="stylesheet"/>
-	<script src="/js/left.js"></script>
-	@yield('css')
-	@yield('script')
+	<meta name="keywords" content="马陆葡萄,马陆葡萄采摘园,马陆葡萄价格,马陆葡萄品种," />
+	<meta name="description" content="马陆葡萄网（隶属于上海徽尚电子商务有限公司），采用自产自销的方式销售自己种植的优质马陆葡萄！同时联合多家经“马陆”牌葡萄商标管理单位“嘉定区马陆镇农业综合服务站”供货，让市民能吃上正宗的马陆葡萄。" />
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/base.css">
+	<script src="/js/jquery.min.js"></script>
+	<!--文字滚动 start-->
+	<script type="text/javascript">
+		var speed=40
+		window.onload=function(){
+			var demo=document.getElementById("demo");
+			var demo2=document.getElementById("demo2");
+			var demo1=document.getElementById("demo1");
+			demo2.innerHTML=demo1.innerHTML
+			function Marquee(){
+				if(demo.scrollTop>=demo1.offsetHeight){
+					demo.scrollTop=0;
+				}
+				else{
+					demo.scrollTop=demo.scrollTop+1;
+				}
+			}
+			var MyMar=setInterval(Marquee,speed)
+			demo.onmouseover=function(){clearInterval(MyMar)}
+			demo.onmouseout=function(){MyMar=setInterval(Marquee,speed)}
+		}
+	</script>
 </head>
 <body>
-@include('layouts.header')
-<div id="container" class="container-fluid">
-	@include('layouts.leftmenu')
-	@yield('content')
-</div>
+@yield('content')
+@include('layouts.footer')
+@yield('css')
+@yield('script')
 </body>
 </html>

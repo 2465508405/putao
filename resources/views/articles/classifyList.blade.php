@@ -78,7 +78,7 @@
                                     <td>{{$classify->id}}</td>
                                     <td>{{$classify->name}}</td>
                                     <td>{{$classify->pid}}</td>
-                                    <td><a href="">删除</a>/<a href="">修改</a></td>
+                                    <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$classify->id}}">删除</a>/<a href="/position/edit?id={{$classify->id}}">修改</a></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -87,4 +87,24 @@
             </div>
         </div>
     </div>
+    <script>
+        function del(obj){
+            var judge = confirm("Press a button");
+            if(judge){
+                var _token = '{{csrf_token()}}';
+                var id = $(obj).attr('data-id');
+                var data = {id:id,_token:_token};
+                $.ajax({
+                    url:'/position/del',
+                    data:data,
+                    dataType:'json',
+                    type:'POST',
+                    success:function(data){
+                        alert(data.msg);
+                        window.location.href="";
+                    }
+                });
+            }
+        }
+    </script>
 @endsection

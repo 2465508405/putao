@@ -8,4 +8,7 @@ class ArticleClassify extends Model
 {
     use SoftDeletes;
     protected $table = 'article_classify';
+    public function __construct(){
+
+    }
 }

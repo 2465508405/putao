@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\ArticleClassify;
+use App\Utils\ClassifyUtil;
+use Validation;
 class ArticleController extends Controller
 {
     /**
@@ -25,13 +27,28 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $articles = Article::paginate(15);
-        return view('articles.list',['articles'=>$articles]);
+        $article = new Article();
+        if($request->input('status')){
+            $article = $article->where('status',$request->input('status'));
+        }
+        if($request->input('title')){
+            $article = $article->where('title','like',"%".$request->input('title')."%");
+        }
+        if($request->input('start_time')){
+            $article = $article->where('created_at','>=',$request->input('start_time'));
+        }
+        if($request->input('end_time')){
+            $article = $article->where('created_at','<=',$request->input('end_time'));
+        }
+        $articles = $article->paginate(15);
+//        dd($article);
+        return view('articles.list',['articles'=>$articles,'request'=>$request]);
     }
 
     public function add(Request $request){
         $classify = ArticleClassify::get();
-        return view('articles.add',['classifies'=>$classify]);
+        $classifyList = ClassifyUtil::getTree($classify ,0,0);
+        return view('articles.add',['classifies'=>$classifyList]);
     }
     /*
      * 添加文章
@@ -43,7 +60,40 @@ class ArticleController extends Controller
         $article->content = $request->input('content');
         $article->type = $request->input('type');
         $article->status = $request->input('status');
+        if($request->input('image')){
+            $picResult = $this->upload($request);
+            $article->thumbPic =  $picResult['imgurl'];
+        }
         $article->creator_user_id = 1;
+        if($article->save()){
+            return redirect('/article/list');
+        }
+    }
+    /*
+     * 编辑
+     */
+    public function edit(Request $request){
+        $id = $request->input('id');
+        $article = Article::where('id',$id)->first();
+        $classify = ArticleClassify::get();
+        $classifyList = ClassifyUtil::getTree($classify ,0,0);
+        return view('articles.edit',['article'=>$article,'classifies'=>$classifyList]);
+    }
+    /*
+     * 编辑处理
+     */
+    public function postEdit(Request $request){
+        $article = Article::where('id',$request->input('id'))->first();
+        $article->title = $request->input('title');
+        $article->type = $request->input('type');
+        $article->desc = $request->input('desc');
+        $article->content = $request->input('content');
+        $article->status = $request->input('status');
+        if($request->input('image')){
+            $picResult = $this->upload($request);
+            $article->thumbPic =  $picResult['imgurl'];
+        }
+        $article->creator_user_id = 0;
         if($article->save()){
             return redirect('/article/list');
         }
@@ -53,7 +103,7 @@ class ArticleController extends Controller
      */
     public function upload(Request $request)
     {
-        $file =$request->input('base64');
+        $file =$request->input('image');
         $seg = explode(";",$file);
         if(sizeof($seg)!=2){
             return resError(400,"wrong paramater" );
@@ -84,7 +134,7 @@ class ArticleController extends Controller
             return resError(402,"parse data failed");
         }
         $y= date("Ym");
-            $subDirectory = date("Ym/d/");
+        $subDirectory = date("Ymd/");
         $destDirectory = $this->getUploadDirectory() . $subDirectory;
         if (!file_exists($destDirectory)) {
             mkdir($destDirectory, 0777, true);
@@ -94,7 +144,7 @@ class ArticleController extends Controller
         $filename = $this->buildPasteFileName($extension);
         file_put_contents($destDirectory.$filename,$real_data);
         $clientSize = filesize($destDirectory.$filename);
-        return  json_encode(['status'=>0,'imgurl'=>'/thumb' . DIRECTORY_SEPARATOR . $subDirectory . $filename]);
+        return  ['status'=>0,'imgurl'=>'thumb' . DIRECTORY_SEPARATOR . $subDirectory . $filename];
     }
 
     private function buildPasteFileName($extension){
@@ -102,6 +152,6 @@ class ArticleController extends Controller
         return $fi.'.'.$extension;
     }
     private function getUploadDirectory(){
-        return '/Users/yangzhengxing/project/images/thumb/';
+        return '/Users/Sites/nvwa/storage/uploads/thumb/';
     }
 }

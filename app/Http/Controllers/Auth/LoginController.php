@@ -38,10 +38,10 @@ class LoginController extends Controller
         $name = $request->input('name');
         $password = $request->input('password');
         $remember = $request->input('remember');
-        if (Auth::attempt(['email' => $name, 'password' => $password])) {
-            return ['code'=>1];
+        if (Auth::attempt(['email' => $name, 'password' => md5($password)])) {
+            return redirect('/article/list');
         }else{
-            return ['code'=>0];
+            return redirect('/login');
         }
     }
 }
