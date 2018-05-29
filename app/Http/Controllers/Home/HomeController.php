@@ -38,6 +38,8 @@ class HomeController extends Controller
 
     public function detail(Request $request,$id){
         $article = Article::where('id',$id)->first();
+        $article->visit_num = $article->visit_num+1;
+        $article->save();
         $category =  Category::where('id',$article->category_id)->first();
         $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->limit(3)->get();
         return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category]);

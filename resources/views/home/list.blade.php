@@ -24,7 +24,7 @@
                                 </a></div>
                             <div class="side2_title"><a href="/detail/{{$article->id}}" target="_blank" >{{$article->meta_description}}
                                 </a></div>
-                            <div class="side3_redu">{{0}}</div>
+                            <div class="side3_redu">{{$article->visit_num}}</div>
                         </div>
                         <div style="clear:both"></div>
                     </li>

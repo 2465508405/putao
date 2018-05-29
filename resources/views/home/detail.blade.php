@@ -13,7 +13,7 @@
                     <span>发布日期：{{$article->created_at}}</span>
                     <span>出处：{{$article->source}}</span>
                     <span>作者：{{$article->author}}</span>
-                    <span>阅读：{{rand(7,3222)}}</span>
+                    <span>阅读：{{$article->visit_num}}</span>
                 </div>
                 <div class="content">
                     <?php
@@ -56,7 +56,7 @@
                                     <div class="rtext">
                                         <div class="side3_title"><a href="/detail/{{$article->id}}" target="_blank" >{{$article->title}}
                                             </a></div>
-                                        <div class="side3_redu">{{0}}</div>
+                                        <div class="side3_redu">{{$article->visit_num}}</div>
                                     </div>
                                     <div style="clear:both"></div>
                                 </li>
