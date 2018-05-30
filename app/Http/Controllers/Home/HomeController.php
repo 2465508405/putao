@@ -25,14 +25,23 @@ class HomeController extends Controller
         return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links]);
     }
 
-    public function lists(Request $request,$id,$type='t',$page=1){
-        $page = $page;
+    public function lists(Request $request,$id){
+        $position = strpos($id, 's');;
+        
+        if($position < 0 || $position === false){
+            $id = $id;
+            $page=1;
+        }else{
+            $info = $id;
+            $id = substr($id, 0,strpos($info, 's'));
+            $page = substr($id,strpos($info, 's')+1);
+        }
         $request->page = $page;
         $pageSize = 10;
         $category =  Category::where('id',$id)->first();
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
         $articles = Article::where('status',3)->orderBy('created_at','desc')->paginate($pageSize);
-        $pageSize = PageUtil::getPage($page,$articles->total(),$pageSize,$id);
+        $pageSize = PageUtil::getPage($page,$articles->total(),$pageSize,$id,'s');
         // dd($pageSize);
         return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize]);
     }
@@ -46,4 +55,3 @@ class HomeController extends Controller
         return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category]);
     }
 }
-

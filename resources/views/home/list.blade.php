@@ -9,7 +9,7 @@
         <div class="news-l">
             <div class="mainLeft">
                 <div class="BreadNav">
-                    <a href="/list/{{$category->id}}.html">{{$category->name}}</a>
+                    <a href="/index{{$category->id}}.html">{{$category->name}}</a>
                 </div>
                 <ul class="side_class4">
                     @foreach($articles as $article)

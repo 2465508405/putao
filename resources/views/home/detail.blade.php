@@ -6,7 +6,7 @@
         <div class="news-l">
             <div class="mainLeft">
                 <div class="BreadNav">
-                    <a href="/list/{{$category->id}}.html" class="hover">{{$category->name}}</a>
+                    <a href="/index{{$category->id}}.html" class="hover">{{$category->name}}</a>
                 </div>
                 <h1>{{$article->title}}</h1>
                 <div class="font2 adimg">
@@ -60,7 +60,7 @@
                                     </div>
                                     <div style="clear:both"></div>
                                 </li>
-                                <div style=" clear:both"></div>
+                                <div style="clear:both"></div>
                             @endforeach
                         </ul>
                     @endif

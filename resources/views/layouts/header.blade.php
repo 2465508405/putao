@@ -29,11 +29,9 @@ $categories = Category::where('base_id',1)->where('id','!=',$firstCategory->id)-
         <ul>
             <li><a href="/">首页</a></li>
             @foreach($categories as $category)
-                <li><a href="/list/{{$category->id}}">{{$category->name}}</a></li>
+                <li><a href="/index{{$category->id}}.html">{{$category->name}}</a></li>
             @endforeach
-            {{--<li><a href="/list">马陆葡萄采摘园</a></li>--}}
-            {{--<li><a href="/list">葡萄知识</a></li>--}}
-            <li><a href="/list">联系我们</a></li>
+            <li><a href="/consult">联系我们</a></li>
         </ul>
     </div>
 </div>

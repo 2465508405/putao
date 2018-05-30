@@ -32,8 +32,8 @@
         </div>
         <div class="main-r">
             <div class="main-r-t">
-                <h3><a href="/list/{{$fourCategory->id}}.html">{{$fourCategory->name}}</a></h3>
-                <span><a href="/list/{{$fourCategory->id}}.html">更多</a></span>
+                <h3><a href="/index{{$fourCategory->id}}.html">{{$fourCategory->name}}</a></h3>
+                <span><a href="/index{{$fourCategory->id}}.html">更多</a></span>
             </div>
             <div class="main-r-n">
                 <ul>
@@ -79,8 +79,8 @@
         @foreach($categories as $category)
         <div class="news-l">
             <div class="news-l-t">
-                <h2><a href="/list/{{$category->id}}.html">{{$category->name}}</a></h2>
-                <span><a href="/list/{{$category->id}}.html">更多</a></span>
+                <h2><a href="/index{{$category->id}}.html">{{$category->name}}</a></h2>
+                <span><a href="/index{{$category->id}}.html">更多</a></span>
             </div>
             <?php
                 $articles = \App\Models\Article::where('category_id',$category->id)->select('id','title','created_at')->get();
