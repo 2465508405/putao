@@ -7,7 +7,7 @@
         <div class="main-l">
             <ul class="main-l-t">
                 @foreach($firstArticles as $firstArticle)
-                <li><a href="/detail/{{$firstArticle->id}}">{{$firstArticle->title}}<span>></span></a>
+                <li><a href="/thread-{{$firstArticle->id}}">{{$firstArticle->title}}<span>></span></a>
                 </li>
                 @endforeach
             </ul>
@@ -32,13 +32,13 @@
         </div>
         <div class="main-r">
             <div class="main-r-t">
-                <h3><a href="/list/{{$fourCategory->id}}">{{$fourCategory->name}}</a></h3>
-                <span><a href="/list/{{$fourCategory->id}}">更多</a></span>
+                <h3><a href="/list/{{$fourCategory->id}}.html">{{$fourCategory->name}}</a></h3>
+                <span><a href="/list/{{$fourCategory->id}}.html">更多</a></span>
             </div>
             <div class="main-r-n">
                 <ul>
                     @foreach($fourArticles as $article)
-                    <li><a href="/detail/{{$article->id}}">【公告】{{$article->title}}</a></li>
+                        <li><a href="/thread-{{$article->id}}.html">【公告】{{$article->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -52,7 +52,7 @@
             <div class="pin-r fr">
                 <ul>
                     @foreach($firstArticles as $firstArticle)
-                    <li><a href="/detail/{{$firstArticle->id}}">{{$firstArticle->name}}</a></li>
+                    <li><a href="/thread-{{$firstArticle->id}}.html">{{$firstArticle->name}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -60,8 +60,8 @@
         <div class="fenlei">
             @foreach($firstArticles as $firstArticle)
             <div class="fenlei-t">
-                <a href="/detail/{{$firstArticle->id}}"><img src="{{env('IMG_URL')}}/{{$firstArticle->thumbPic}}" alt=""></a>
-                <a href=""><h3>{{$firstArticle->title}}</h3></a>
+                <a href="/thread-{{$firstArticle->id}}.html"><img src="{{env('IMG_URL')}}/{{$firstArticle->thumbPic}}" alt=""></a>
+                <a href="/thread-{{$firstArticle->id}}.html"><h3>{{$firstArticle->title}}</h3></a>
                 <p>市场价：<del>{{$firstArticle->market_price}}</del>元</p>
                 <p>会员价：<span>{{$firstArticle->member_price}}</span>元</p>
             </div>
@@ -79,8 +79,8 @@
         @foreach($categories as $category)
         <div class="news-l">
             <div class="news-l-t">
-                <h2><a href="/list/{{$category->id}}">{{$category->name}}</a></h2>
-                <span><a href="/list/{{$category->id}}">更多</a></span>
+                <h2><a href="/list/{{$category->id}}.html">{{$category->name}}</a></h2>
+                <span><a href="/list/{{$category->id}}.html">更多</a></span>
             </div>
             <?php
                 $articles = \App\Models\Article::where('category_id',$category->id)->select('id','title','created_at')->get();
@@ -88,7 +88,7 @@
             <div class="news-l-b">
                 <ul>
                     @foreach($articles as $article)
-                    <li><a href="/detail/{{$article->id}}">{{$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
+                    <li><a href="/thread-{{$article->id}}.html">{{$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
                     @endforeach
 
                 </ul>

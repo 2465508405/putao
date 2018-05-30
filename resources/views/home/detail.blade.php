@@ -6,7 +6,7 @@
         <div class="news-l">
             <div class="mainLeft">
                 <div class="BreadNav">
-                    <a href="/list/{{$category->id}}" class="hover">{{$category->name}}</a>
+                    <a href="/list/{{$category->id}}.html" class="hover">{{$category->name}}</a>
                 </div>
                 <h1>{{$article->title}}</h1>
                 <div class="font2 adimg">
@@ -21,8 +21,8 @@
                     ?>
                 </div>
                 <div class="connext adimg">
-                    <span class="nextup"><a href="/detail/{{$article->id-1}}.html">家里没地养花?错!是你不会养</a></span>
-                    <span class="next"><a href="/detail/{{$article->id+1}}.html">封闭阳台、室内窗台也能打造超美花园</a></span>
+                    <span class="nextup"><a href="/thread-{{$article->id-1}}.html">家里没地养花?错!是你不会养</a></span>
+                    <span class="next"><a href="/thread-{{$article->id+1}}.html">封闭阳台、室内窗台也能打造超美花园</a></span>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="tag">
                             @foreach($articles as $article)
-                                <a href="/detail/{{$article->id}}">{{$article->title}}</a>
+                                <a href="/thread-{{$article->id}}.html">{{$article->title}}</a>
                             @endforeach
                         </div>
                     @else
@@ -49,12 +49,12 @@
                             @foreach($articles as $article)
                                 <li>
                                     <div class="limg">
-                                        <a href="/detail/{{$article->id}}" target="_blank" >
+                                        <a href="/thread-{{$article->id}}.html" target="_blank" >
                                             <img src="{{env('IMG_URL')}}/{{$article->thumbPic}}" alt="{{$article->meta_description}}" >
                                         </a>
                                     </div>
                                     <div class="rtext">
-                                        <div class="side3_title"><a href="/detail/{{$article->id}}" target="_blank" >{{$article->title}}
+                                        <div class="side3_title"><a href="/thread-/{{$article->id}}.html" target="_blank" >{{$article->title}}
                                             </a></div>
                                         <div class="side3_redu">{{$article->visit_num}}</div>
                                     </div>
