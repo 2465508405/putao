@@ -7,7 +7,8 @@
         <div class="main-l">
             <ul class="main-l-t">
                 @foreach($firstArticles as $firstArticle)
-                <li><a href="/detail/{{$firstArticle->id}}">{{$firstArticle->title}}</a><span>></span></li>
+                <li><a href="/detail/{{$firstArticle->id}}">{{$firstArticle->title}}<span>></span></a>
+                </li>
                 @endforeach
             </ul>
         </div>
