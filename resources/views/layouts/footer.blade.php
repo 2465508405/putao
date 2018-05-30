@@ -1,15 +1,15 @@
 <div class="footer clearfix">
     <div class="copyright">
         <div class="links w">
-            <a href="">首页</a>
+            <a href="/">首页</a>
             <span>|</span>
-            <a href="">马陆葡萄价格</a>
+            <a href="/index1.html">马陆葡萄价格</a>
             <span>|</span>
-            <a href="">马陆葡萄品种</a>
+            <a href="/index2.html">马陆葡萄品种</a>
             <span>|</span>
-            <a href="">马陆葡萄采摘园</a>
+            <a href="/index3.html">马陆葡萄采摘园</a>
             <span>|</span>
-            <a href="">葡萄知识</a>
+            <a href="/index4.html">葡萄知识</a>
             <span>|</span>
             <a href="/consult">联系我们</a>
             <span>|</span>

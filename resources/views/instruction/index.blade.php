@@ -12,7 +12,7 @@
                 {{--</div>--}}
                 <div class="content">
                     <?php
-                    echo htmlspecialchars_decode($consult->content);
+                    echo htmlspecialchars_decode($instruction->content);
                     ?>
                 </div>
             </div>
