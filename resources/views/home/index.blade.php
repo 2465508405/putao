@@ -122,7 +122,7 @@
                 autoPlay : true,//是否自动播放 true/false
                 direction : "left",//滚动方向 right/left
             });
-
+            
             $(".carousel-content").hover(function(){
                 $(".carousel-prev,.carousel-next").fadeIn(300);
             },function(){

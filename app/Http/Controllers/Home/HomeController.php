@@ -25,9 +25,10 @@ class HomeController extends Controller
         return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links]);
     }
 
-    public function lists(Request $request,$id){
-        $page = 1;
-        $pageSize = 1;
+    public function lists(Request $request,$id,$type='t',$page=1){
+        $page = $page;
+        $request->page = $page;
+        $pageSize = 10;
         $category =  Category::where('id',$id)->first();
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
         $articles = Article::where('status',3)->orderBy('created_at','desc')->paginate($pageSize);

@@ -11,7 +11,7 @@
 |
 */
 Route::get('/','Home\HomeController@index');
-Route::get('list/{id}.html','Home\HomeController@lists');
+Route::get('list/{id}{type?}{page?}.html','Home\HomeController@lists');
 Route::get('thread-{id}.html','Home\HomeController@detail');
 Route::get('consult','Consult\ConsultController@index');
 Route::get('instruction','Instruction\InstructionController@index');
