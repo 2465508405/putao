@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('content')
+@section('title')
     <title>{{$article->meta_title}}</title>
 @endsection
 @section('content')
