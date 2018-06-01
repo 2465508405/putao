@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    <title>马陆葡萄_马陆葡萄采摘园_马陆葡萄价格品种</title>
+    <title>{{$category->meta_title}}</title>
 @endsection
 @section('content')
     @include('layouts.header')
@@ -9,7 +9,7 @@
         <div class="news-l">
             <div class="mainLeft">
                 <div class="BreadNav">
-                    <a href="/index{{$category->id}}.html">{{$category->name}}</a>
+                    <a href="">首页</a>／<a href="/index{{$category->id}}.html">{{$category->name}}</a>
                 </div>
                 <ul class="side_class4">
                     @foreach($articles as $article)

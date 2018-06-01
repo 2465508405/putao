@@ -12,7 +12,6 @@
                 {{--</div>--}}
                 <div class="content">
                     <?php
-//                        dd($consult->content);
                     echo htmlspecialchars_decode($consult->content);
                     ?>
                 </div>
