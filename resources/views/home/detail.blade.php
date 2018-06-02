@@ -24,8 +24,12 @@
                     ?>
                 </div>
                 <div class="connext adimg">
-                    <span class="nextup"><a href="/thread-{{$article->id-1}}.html">家里没地养花?错!是你不会养</a></span>
-                    <span class="next"><a href="/thread-{{$article->id+1}}.html">封闭阳台、室内窗台也能打造超美花园</a></span>
+                    @if($prevArticle)
+                    <span class="nextup"><a href="/thread-{{$prevArticle->id}}.html">{{$prevArticle->title}}</a></span>
+                    @endif
+                    @if($nextArticle)
+                    <span class="next"><a href="/thread-{{$nextArticle->id}}.html">{{$nextArticle->title}}</a></span>
+                    @endif
                 </div>
             </div>
         </div>

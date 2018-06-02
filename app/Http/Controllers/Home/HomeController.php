@@ -52,16 +52,20 @@ class HomeController extends Controller
         $article->visit_num = $article->visit_num+1;
         $article->save();
         $category =  Category::where('id',$article->category_id)->first();
+        $nextArticle = Article::where('id',$id+1)->first();
+        $prevArticle = Article::where('id',$id-1)->first();
         $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->limit(3)->get();
-        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category]);
+        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle]);
     }
 
     public function goodsDetail(Request $request,$id){
         $goods = Goods::where('id',$id)->where('status',3)->first();
         $goods->visit_num = $goods->visit_num+1;
         $goods->save();
+        $nextGoods = Goods::where('id',$id+1)->first();
+        $prevGoods = Goods::where('id',$id-1)->first();
         $category =  Category::where('id',1)->first();
         $categories = Category::where('base_id',1)->where('id','!=',1)->orderBy('number','desc')->limit(3)->get();
-        return view('home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category]);
+        return view('home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category,'nextGoods'=>$nextGoods,'prevGoods'=>$prevGoods]);
     }
 }

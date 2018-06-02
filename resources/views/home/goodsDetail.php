@@ -24,8 +24,12 @@
                 ?>
             </div>
             <div class="connext adimg">
-                <span class="nextup"><a href="/g-{{$goods->id-1}}.html">家里没地养花?错!是你不会养</a></span>
-                <span class="next"><a href="/g-{{$goods->id+1}}.html">封闭阳台、室内窗台也能打造超美花园</a></span>
+                @if(prevGoods)
+                <span class="nextup"><a href="/g-{{$prevGoods->id}}.html">{{$prevGoods->title}}</a></span>
+                @endif
+                @if(nextGoods)
+                <span class="next"><a href="/g-{{$nextGoods->id}}.html">{{$prevGoods->title}}</a></span>
+                @endif
             </div>
         </div>
     </div>
