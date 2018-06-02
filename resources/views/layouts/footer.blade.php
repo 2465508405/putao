@@ -1,3 +1,6 @@
+<?php
+    $baseConfig = \App\Models\BaseConfig::first();
+?>
 <div class="footer clearfix">
     <div class="copyright">
         <div class="links w">
@@ -22,6 +25,8 @@
     </div>
     <div class="c-info">
         <p>版权所有 马陆葡萄直销网 （隶属于上海徽尚电子商务有限公司） 沪ICP备06038790号 Copyright 2007-2013 All Rights Reserved</p>
-        <p>地址:嘉定区马陆镇大裕村2703号（浏翔公路靠塔新路，点击看地图）热线直拨：186-2179-1688 大客户：158-2125-2965 投诉电话：186-2179-1688</p>
+        @if($baseConfig)
+        <p>地址:{{$baseConfig->address}}</p>
+        @endif
     </div>
 </div>
