@@ -20,7 +20,7 @@ class HomeController extends Controller
         $firstArticles = Article::where('category_id',$firstCategory->id)->where('status',3)->orderBy('created_at','desc')->take(10)->get();
         $categories = Category::where('base_id',1)->where('id','!=',$firstCategory->id)->orderBy('number','desc')->limit(3)->get();
         $fourCategory = Category::where('base_id',1)->orderBy('number','asc')->limit(1)->first();
-        $goods = Goods::where('status',3)->get();
+        $goods = Goods::where('status',3)->orderBy('created_at','desc')->get();
         $fourArticles = Article::where('category_id',$fourCategory->id)->where('status',3)->orderBy('created_at','desc')->take(8)->get();
         //友情链接
         $links = Link::take(10)->get();
