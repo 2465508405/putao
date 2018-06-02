@@ -45,7 +45,6 @@ class HomeController extends Controller
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
         $articles = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->paginate($pageSize);
         $pageSize = PageUtil::getPage($page,$articles->total(),$pageSize,$id,'s');
-//         dd($pageSize);
         return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize]);
     }
 
@@ -56,7 +55,7 @@ class HomeController extends Controller
         $category =  Category::where('id',$article->category_id)->first();
         $nextArticle = Article::where('id',$id+1)->first();
         $prevArticle = Article::where('id',$id-1)->first();
-        $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->limit(3)->get();
+        $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->take(3)->get();
         return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle]);
     }
 
@@ -67,7 +66,7 @@ class HomeController extends Controller
         $nextGoods = Goods::where('id',$id+1)->first();
         $prevGoods = Goods::where('id',$id-1)->first();
         $category =  Category::where('id',1)->first();
-        $categories = Category::where('base_id',1)->where('id','!=',1)->orderBy('number','desc')->limit(3)->get();
+        $categories = Category::where('base_id',1)->where('id','!=',1)->orderBy('number','desc')->take(3)->get();
         return view('home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category,'nextGoods'=>$nextGoods,'prevGoods'=>$prevGoods]);
     }
 }
