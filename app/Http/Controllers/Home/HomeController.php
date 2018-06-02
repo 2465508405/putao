@@ -9,20 +9,21 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Advertisement;
 use App\Models\AdSpace;
-use App\Models\ArticleClassify;
+use App\Models\Goods;
 use App\Utils\PageUtil;
 class HomeController extends Controller
 {
 
     public function index(Request $reques){
         $firstCategory = Category::where('base_id',1)->orderBy('number','desc')->first();
-        $firstArticles = Article::where('category_id',$firstCategory->id)->orderBy('number','desc')->limit(10)->get();
+        $firstArticles = Article::where('category_id',$firstCategory->id)->where('status',3)->orderBy('number','desc')->limit(10)->get();
         $categories = Category::where('base_id',1)->where('id','!=',$firstCategory->id)->orderBy('number','desc')->limit(3)->get();
         $fourCategory = Category::where('base_id',1)->orderBy('number','asc')->limit(1)->first();
-        $fourArticles = Article::where('category_id',$fourCategory->id)->orderBy('number','desc')->limit(10)->get();
+        $goods = Goods::where('status',3)->get();
+        $fourArticles = Article::where('category_id',$fourCategory->id)->where('status',3)->orderBy('number','desc')->limit(10)->get();
         //友情链接
         $links = Link::limit(10)->get();
-        return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links]);
+        return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links,'goods'=>$goods]);
     }
 
     public function lists(Request $request,$id){
@@ -53,5 +54,14 @@ class HomeController extends Controller
         $category =  Category::where('id',$article->category_id)->first();
         $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->limit(3)->get();
         return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category]);
+    }
+
+    public function goodsDetail(Request $request,$id){
+        $goods = Goods::where('id',$id)->where('status',3)->first();
+        $goods->visit_num = $goods->visit_num+1;
+        $goods->save();
+        $category =  Category::where('id',1)->first();
+        $categories = Category::where('base_id',1)->where('id','!=',1)->orderBy('number','desc')->limit(3)->get();
+        return view('home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category]);
     }
 }

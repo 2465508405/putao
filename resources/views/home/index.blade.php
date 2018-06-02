@@ -58,12 +58,12 @@
             </div>
         </div>
         <div class="fenlei">
-            @foreach($firstArticles as $firstArticle)
+            @foreach($goods as $good)
             <div class="fenlei-t">
-                <a href="/thread-{{$firstArticle->id}}.html"><img src="{{env('IMG_URL')}}/{{$firstArticle->thumbPic}}" alt=""></a>
-                <a href="/thread-{{$firstArticle->id}}.html"><h3>{{$firstArticle->title}}</h3></a>
-                <p>市场价：<del>{{$firstArticle->market_price}}</del>元</p>
-                <p>会员价：<span>{{$firstArticle->member_price}}</span>元</p>
+                <a href="/thread-{{$good->id}}.html"><img src="{{env('IMG_URL')}}/{{$good->thumbPic}}" alt=""></a>
+                <a href="/g-{{$good->id}}.html"><h3>{{$good->title}}</h3></a>
+                <p>市场价：<del>{{$good->market_price}}</del>元</p>
+                <p>会员价：<span>{{$good->member_price}}</span>元</p>
             </div>
             @endforeach
         </div>

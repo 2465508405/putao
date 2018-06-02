@@ -13,6 +13,7 @@
 Route::get('/','Home\HomeController@index');
 Route::get('index{id}.html','Home\HomeController@lists');
 Route::get('thread-{id}.html','Home\HomeController@detail');
+Route::get('g-{id}.html','Home\HomeController@goodsDetail');
 Route::get('consult','Consult\ConsultController@index');
 Route::get('instruction','Instruction\InstructionController@index');
 Route::get('notice','Notice\NoticeController@index');
