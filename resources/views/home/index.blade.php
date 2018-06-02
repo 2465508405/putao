@@ -59,7 +59,7 @@
             <div class="pin-r fr">
                 <ul>
                     @foreach($firstArticles as $firstArticle)
-                    <li><a href="/thread-{{$firstArticle->id}}.html">{{$firstArticle->name}}</a></li>
+                    <li><a href="/thread-{{$firstArticle->id}}.html">{{$firstArticle->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
