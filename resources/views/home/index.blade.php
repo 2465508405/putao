@@ -90,7 +90,7 @@
                 <span><a href="/index{{$category->id}}.html">更多</a></span>
             </div>
             <?php
-                $articles = \App\Models\Article::where('category_id',$category->id)->select('id','title','created_at')->orderBy('created_at','desc')->limit(8)->get();
+                $articles = \App\Models\Article::where('category_id',$category->id)->select('id','title','created_at')->orderBy('created_at','desc')->take(8)->get();
             ?>
             <div class="news-l-b">
                 <ul>
