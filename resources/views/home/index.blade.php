@@ -67,7 +67,7 @@
         <div class="fenlei">
             @foreach($goods as $good)
             <div class="fenlei-t">
-                <a href="/thread-{{$good->id}}.html"><img src="{{env('IMG_URL')}}/{{$good->thumbPic}}" alt=""></a>
+                <a href="/g-{{$good->id}}.html"><img src="{{env('IMG_URL')}}/{{$good->thumbPic}}" alt=""></a>
                 <a href="/g-{{$good->id}}.html"><h3>{{$good->title}}</h3></a>
                 <p>市场价：<del>{{$good->market_price}}</del>元</p>
                 <p>会员价：<span>{{$good->member_price}}</span>元</p>
@@ -95,7 +95,11 @@
             <div class="news-l-b">
                 <ul>
                     @foreach($articles as $article)
-                    <li><a href="/thread-{{$article->id}}.html">{{(strlen($article->title)>=18)?mb_substr($article->title,0,16).'...':$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
+                        <?php
+
+//                                dd(strlen($article->title));
+                            ?>
+                    <li><a href="/thread-{{$article->id}}.html">{{(mb_strlen($article->title)>=18)?mb_substr($article->title,0,16).'...':$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
                     @endforeach
 
                 </ul>
