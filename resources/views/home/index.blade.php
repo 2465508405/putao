@@ -1,4 +1,11 @@
 @extends('layouts.main')
+@section('title')
+    @if($baseConfig)
+    <title>{{$baseConfig->title}}</title>
+    <meta name="keywords" content="{{$baseConfig->home_key_word}}" />
+    <meta name="description" content="{{$baseConfig->home_meta_description}}" />
+    @endif
+@endsection
 @section('content')
     <link rel="stylesheet" type="text/css" href="/css/lunbotu.css">
     @include('layouts.header')
