@@ -1,6 +1,8 @@
 @extends('layouts.main')
 @section('title')
-<title>{{$goods->meta_title}}</title>
+    <title>{{$goods->meta_title}}-马陆葡萄网</title>
+    <meta name="keywords" content="{{$goods->meta_key_word}}" />
+    <meta name="description" content="{{$goods->meta_description}}" />
 @endsection
 @section('content')
 <link rel="stylesheet" href="/css/details.css">
