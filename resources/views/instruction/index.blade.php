@@ -31,7 +31,7 @@
                         </div>
                         <div class="tag">
                             @foreach($articles as $article)
-                                <a href="/detail/{{$article->id}}">{{$article->title}}</a>
+                                <a href="/thread-{{$article->id}}.html">{{$article->title}}</a>
                             @endforeach
                         </div>
                     @else
@@ -42,12 +42,12 @@
                             @foreach($articles as $article)
                                 <li>
                                     <div class="limg">
-                                        <a href="/detail/{{$article->id}}" target="_blank" >
+                                        <a href="/thread-{{$article->id}}.html" target="_blank" >
                                             <img src="{{env('IMG_URL')}}/{{$article->thumbPic}}" alt="{{$article->meta_description}}" >
                                         </a>
                                     </div>
                                     <div class="rtext">
-                                        <div class="side3_title"><a href="/detail/{{$article->id}}" target="_blank" >{{$article->title}}
+                                        <div class="side3_title"><a href="/thread-{{$article->id}}.html" target="_blank" >{{$article->title}}
                                             </a></div>
                                         <div class="side3_redu">{{rand(9,1111)}}</div>
                                     </div>
