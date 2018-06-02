@@ -1,4 +1,7 @@
 @extends('layouts.main')
+<title>{{$instruction->meta_title}}-马陆葡萄网</title>
+<meta name="keywords" content="{{$instruction->meta_keyword}}" />
+<meta name="description" content="{{$instruction->meta_description}}" />
 @section('content')
     <link rel="stylesheet" href="/css/details.css">
     @include('layouts.header')
