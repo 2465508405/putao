@@ -11,20 +11,20 @@
         <div class="news-l">
             <div class="mainLeft">
                 <div class="BreadNav">
-                    <a href="">首页</a>／<a href="/index{{$category->id}}.html">{{$category->name}}</a>
+                    <a href="/">首页</a>／<a href="/index{{$category->id}}.html">{{$category->name}}</a>
                 </div>
                 <ul class="side_class4">
                     @foreach($articles as $article)
                     <li>
                         <div class="limg">
                             <a href="/thread-{{$article->id}}.html" target="_blank" >
-                                <img src="{{env('IMG_URL')}}/{{$article->thumbPic}}" alt="{{$article->meta_description}}"/>
+                                <img src="{{env('IMG_URL')}}/{{$article->thumbPic}}" alt="{{$article->title}}"/>
                             </a>
                         </div>
                         <div class="rtext">
                             <div class="side3_title"><a href="/thread-{{$article->id}}.html" target="_blank" >{{$article->title}}
                                 </a></div>
-                            <div class="side2_title"><a href="/thread-{{$article->id}}.html" target="_blank" >{{$article->meta_description}}
+                            <div class="side2_title"><a href="/thread-{{$article->id}}.html" target="_blank" >{{(strlen($article->meta_description)>=133)?mb_substr($article->meta_description,0,133).'...':$article->meta_description}}
                                 </a></div>
                             <div class="side3_redu">{{$article->visit_num}}</div>
                         </div>
@@ -37,14 +37,6 @@
                 <?php
                     echo htmlspecialchars_decode($pageSize);
                 ?>
-               <!--  <span class="pagination-curr">1</span>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">4</a>
-                <a href="">5</a>
-                <span>…</span>
-                <a href="" class="pagination-last" title="尾页">249</a>
-                <a href="" class="pagination-next">下一页</a> -->
             </div>
         </div>
         <div class="news-r">
