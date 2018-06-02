@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Advertisement;
 use App\Models\AdSpace;
+use App\Models\BaseConfig;
 use App\Models\Goods;
 use App\Utils\PageUtil;
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
         $fourArticles = Article::where('category_id',$fourCategory->id)->where('status',3)->orderBy('number','desc')->limit(10)->get();
         //友情链接
         $links = Link::limit(10)->get();
-        return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links,'goods'=>$goods]);
+        $baseConfig = BaseConfig::first();
+        return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links,'goods'=>$goods,'baseConfig'=>$baseConfig]);
     }
 
     public function lists(Request $request,$id){
