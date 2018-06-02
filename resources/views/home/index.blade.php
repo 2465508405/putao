@@ -95,7 +95,7 @@
             <div class="news-l-b">
                 <ul>
                     @foreach($articles as $article)
-                    <li><a href="/thread-{{$article->id}}.html">{{$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
+                    <li><a href="/thread-{{$article->id}}.html">{{(strlen($article->title)>=18)?mb_substr($article->title,0,16).'...':$article->title}}</a><span>{{date('Y-m-d',strtotime($article->created_at))}}</span></li>
                     @endforeach
 
                 </ul>
