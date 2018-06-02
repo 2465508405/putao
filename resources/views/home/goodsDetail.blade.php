@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-<title>{{$article->meta_title}}</title>
+<title>{{$goods->meta_title}}</title>
 @endsection
 @section('content')
 <link rel="stylesheet" href="/css/details.css">
@@ -9,9 +9,9 @@
     <div class="news-l">
         <div class="mainLeft">
             <div class="BreadNav">
-                <a href="/">首页</a>／<a href="/g-{{$goods->id}}.html">{{$goods->title}}</a>
+                <a href="/">首页</a>／<a href="/thread-{{$goods->id}}.html">{{$goods->title}}</a>
             </div>
-            <h1>{{$article->title}}</h1>
+            <h1>{{$goods->title}}</h1>
             <div class="font2 adimg">
                 <span>发布日期：{{$goods->created_at}}</span>
                 <span>出处：{{$goods->source}}</span>
@@ -24,11 +24,11 @@
                 ?>
             </div>
             <div class="connext adimg">
-                @if(prevGoods)
-                <span class="nextup"><a href="/g-{{$prevGoods->id}}.html">{{$prevGoods->title}}</a></span>
+                @if($prevGoods)
+                <span class="nextup"><a href="/thread-{{$prevGoods->id}}.html">{{$prevGoods->title}}</a></span>
                 @endif
-                @if(nextGoods)
-                <span class="next"><a href="/g-{{$nextGoods->id}}.html">{{$prevGoods->title}}</a></span>
+                @if($nextGoods)
+                <span class="next"><a href="/thread-{{$nextGoods->id}}.html">{{$nextGoods->title}}</a></span>
                 @endif
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="news-r-n">
             @foreach($categories as $k=>$cat)
             <?php
-            $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(10)->get();
+            $articles = App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(10)->get();
             ?>
             @if($k == 0)
             <div class="news-r-t">

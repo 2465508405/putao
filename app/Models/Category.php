@@ -9,4 +9,8 @@ class Category extends Model
     use SoftDeletes;
     protected $table = 'categories';
 
+
+    public function articles(){
+        return $this->hasMany('App\Models\Article','category_id');
+    }
 }

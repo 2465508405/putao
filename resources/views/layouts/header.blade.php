@@ -4,7 +4,7 @@ use App\Models\Category;
 use App\Models\Advertisement;
 use App\Models\AdSpace;
 $firstCategory = Category::where('base_id',1)->orderBy('number','desc')->first();
-$firstArtices = Article::where('category_id',$firstCategory->id)->orderBy('number','desc')->limit(10)->get();
+//$firstArtices = Article::where('category_id',$firstCategory->id)->orderBy('number','desc')->limit(10)->get();
 $categories = Category::where('base_id',1)->where('id','!=',$firstCategory->id)->orderBy('number','desc')->limit(3)->get();
 //$fourCategory = Category::where('base_id',1)->orderBy('number','asc')->limit(1)->first();
 //$fourArticles = Article::where('category_id',$fourCategory->id)->orderBy('number','desc')->limit(10)->get();
