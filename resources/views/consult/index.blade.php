@@ -1,5 +1,5 @@
 @extends('layouts.main')
-<title>{{$consult->meta_title}}-马陆葡萄网</title>
+<title>{{$consult->name}}-马陆葡萄网</title>
 <meta name="keywords" content="{{$consult->meta_keyword}}" />
 <meta name="description" content="{{$consult->meta_description}}" />
 @section('content')
@@ -8,11 +8,10 @@
     <div class="news w clearfix">
         <div class="news-l">
             <div class="mainLeft">
-                {{--<div class="BreadNav">--}}
-                {{--<a href="/">马陆葡萄网</a>&nbsp;/&nbsp;--}}
-                {{--<a href="/">养花精选</a>&nbsp;/&nbsp;<a href="/cyyh">创意养花</a>&nbsp;/&nbsp;--}}
-                {{--<a class="hover">{{$category->name}}</a>--}}
-                {{--</div>--}}
+                <div class="BreadNav">
+                    <a href="/">首页</a>&nbsp;/&nbsp;
+                    <a class="hover" href="/consult">{{$consult->name}}</a>
+                </div>
                 <div class="content">
                     <?php
                     echo htmlspecialchars_decode($consult->content);
