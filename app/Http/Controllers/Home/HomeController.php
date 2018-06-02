@@ -30,14 +30,14 @@ class HomeController extends Controller
 
     public function lists(Request $request,$id){
         $position = strpos($id, 's');;
-        
+
         if($position < 0 || $position === false){
             $id = $id;
             $page=1;
         }else{
             $info = $id;
-            $id = substr($id, 0,strpos($info, 's'));
-            $page = substr($id,strpos($info, 's')+1);
+            $id = substr($info, 0,strpos($info, 's'));
+            $page = substr($info,strpos($info, 's')+1);
         }
         $request->page = $page;
         $pageSize = 10;
