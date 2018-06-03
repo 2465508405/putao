@@ -26,6 +26,9 @@
                     $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(10)->get();
                     ?>
                     @if($k == 0)
+                        <?php
+                        $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(9)->get();
+                        ?>
                         <div class="news-r-t">
                             <h2>{{$cat->name}}</h2>
                         </div>
@@ -35,6 +38,9 @@
                             @endforeach
                         </div>
                     @else
+                        <?php
+                        $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(3)->get();
+                        ?>
                         <div class="news-r-t">
                             <h2>{{$cat->name}}</h2>
                         </div>
