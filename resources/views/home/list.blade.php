@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    <title>{{$category->meta_title}}-马陆葡萄网</title>
+    <title>{{$category->meta_title}}-马陆葡萄网-第{{$page}}页</title>
     <meta name="keywords" content="{{$category->meta_keyword}}" />
     <meta name="description" content="{{$category->meta_description}}" />
 @endsection
