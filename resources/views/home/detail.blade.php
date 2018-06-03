@@ -38,10 +38,11 @@
         <div class="news-r">
             <div class="news-r-n">
                 @foreach($categories as $k=>$cat)
-                    <?php
-                    $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->orderBy('created_at','desc')->limit(3)->get();
-                    ?>
+
                     @if($k == 0)
+                        <?php
+                        $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->orderBy('created_at','desc')->limit(9)->get();
+                        ?>
                         <div class="news-r-t">
                             <h2>{{$cat->name}}</h2>
                         </div>
@@ -51,6 +52,9 @@
                             @endforeach
                         </div>
                     @else
+                        <?php
+                        $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->orderBy('created_at','desc')->limit(3)->get();
+                        ?>
                         <div class="news-r-t">
                             <h2>{{$cat->name}}</h2>
                         </div>
