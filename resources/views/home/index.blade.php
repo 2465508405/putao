@@ -27,10 +27,6 @@
                             @foreach($advertisements as $ad)
                             <li><img src="{{env('IMG_URL')}}/{{$ad->photo}}}}"></li>
                             @endforeach
-                            <li><img src="/images/pic2.png"></li>
-                            <li><img src="/images/pic3.png"></li>
-                            <li><img src="/images/pic4.png"></li>
-                            <li><img src="/images/pic5.png"></li>
                         </ul>
                         <ul class="img-index"></ul>
                         <div class="carousel-prev"><img src="/images/left1.png"></div>
