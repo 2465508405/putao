@@ -25,7 +25,7 @@
                     <div class="carousel-content">
                         <ul class="carousel">
                             @foreach($advertisements as $ad)
-                            <li><img src="{{env('IMG_URL')}}/{{$ad->photo}}}}"></li>
+                            <li><img src="{{env('IMG_URL')}}/{{$ad->photo}}"></li>
                             @endforeach
                         </ul>
                         <ul class="img-index"></ul>
