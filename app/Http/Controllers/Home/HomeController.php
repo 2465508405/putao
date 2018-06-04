@@ -25,7 +25,9 @@ class HomeController extends Controller
         //友情链接
         $links = Link::take(10)->get();
         $baseConfig = BaseConfig::first();
-        return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links,'goods'=>$goods,'baseConfig'=>$baseConfig]);
+        //广告展示
+        $advertisements = Advertisement::where('status',3)->get();
+        return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links,'goods'=>$goods,'baseConfig'=>$baseConfig,'advertisements'=>$advertisements]);
     }
 
     public function lists(Request $request,$id){
