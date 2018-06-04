@@ -19,7 +19,7 @@ $categories = Category::where('base_id',1)->where('id','!=',$firstCategory->id)-
             <a href=""><img src="/images/luntan_bg.png" alt="马陆葡萄网" title="马陆葡萄网"></a>
         </div>
         <div class="logo-right">
-            <a href=""><img src="/images/gifweixin.gif" alt="马陆葡萄网" title="马陆葡萄网"></a>
+            <a href=""><img src="/images/weixin.png" alt="马陆葡萄网" title="马陆葡萄网"></a>
         </div>
     </div>
 </div>
