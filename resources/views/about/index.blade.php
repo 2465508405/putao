@@ -1,7 +1,7 @@
 @extends('layouts.main')
-<title>{{$consult->name}}-马陆葡萄网</title>
-<meta name="keywords" content="{{$consult->meta_keyword}}" />
-<meta name="description" content="{{$consult->meta_description}}" />
+<title>{{$about->name}}-马陆葡萄网</title>
+<meta name="keywords" content="{{$about->meta_keyword}}" />
+<meta name="description" content="{{$about->meta_description}}" />
 @section('content')
     <link rel="stylesheet" href="/css/details.css">
     @include('layouts.header')
@@ -10,11 +10,11 @@
             <div class="mainLeft">
                 <div class="BreadNav">
                     <a href="/">首页</a>&nbsp;/&nbsp;
-                    <a class="hover" href="/consult">{{$consult->name}}</a>
+                    <a class="hover" href="/about">{{$about->name}}</a>
                 </div>
                 <div class="content">
                     <?php
-                    echo htmlspecialchars_decode($consult->content);
+                    echo htmlspecialchars_decode($about->content);
                     ?>
                 </div>
             </div>
