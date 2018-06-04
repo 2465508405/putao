@@ -24,7 +24,6 @@ class HomeController extends Controller
         $fourArticles = Article::where('category_id',$fourCategory->id)->where('status',3)->orderBy('created_at','desc')->take(8)->get();
         //友情链接
         $links = Link::take(10)->get();
-        dd(3);
         $baseConfig = BaseConfig::first();
         //广告展示
         $advertisements = Advertisement::where('status',3)->get();
