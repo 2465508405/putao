@@ -76,7 +76,7 @@
     <!--品牌种类价格专区 end-->
     <!--ad start-->
     <div class="ad w">
-        <img src="/images/ad.jpg" alt="">
+        <img src="/images/ad.png" alt="">
     </div>
     <!--ad end-->
     <!--news start-->
