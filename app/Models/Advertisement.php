@@ -8,6 +8,6 @@ class Advertisement extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'advertisement';
+    protected $table = 'advertisements';
 
 }
