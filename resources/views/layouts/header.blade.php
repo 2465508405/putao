@@ -32,6 +32,7 @@ $categories = Category::where('base_id',1)->where('id','!=',$firstCategory->id)-
                 <li><a href="/index{{$category->id}}.html">{{$category->name}}</a></li>
             @endforeach
             <li><a href="/consult">联系我们</a></li>
+            <li><a href="/about">关于我们</a></li>
         </ul>
     </div>
 </div>

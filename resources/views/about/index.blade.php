@@ -1,7 +1,7 @@
 @extends('layouts.main')
-<title>{{$about->name}}-马陆葡萄网</title>
-<meta name="keywords" content="{{$about->meta_keyword}}" />
-<meta name="description" content="{{$about->meta_description}}" />
+<title>{{$consult->name}}-马陆葡萄网</title>
+<meta name="keywords" content="{{$consult->meta_keyword}}" />
+<meta name="description" content="{{$consult->meta_description}}" />
 @section('content')
     <link rel="stylesheet" href="/css/details.css">
     @include('layouts.header')
@@ -10,11 +10,11 @@
             <div class="mainLeft">
                 <div class="BreadNav">
                     <a href="/">首页</a>&nbsp;/&nbsp;
-                    <a class="hover" href="/about">{{$about->name}}</a>
+                    <a class="hover" href="/consult">{{$consult->name}}</a>
                 </div>
                 <div class="content">
                     <?php
-                    echo htmlspecialchars_decode($about->content);
+                    echo htmlspecialchars_decode($consult->content);
                     ?>
                 </div>
             </div>
@@ -26,9 +26,9 @@
                     $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(10)->get();
                     ?>
                     @if($k == 0)
-                            <?php
-                            $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(9)->get();
-                            ?>
+                        <?php
+                        $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(9)->get();
+                        ?>
                         <div class="news-r-t">
                             <h2>{{$cat->name}}</h2>
                         </div>
