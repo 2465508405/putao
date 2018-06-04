@@ -175,6 +175,12 @@
 .news{
     height: 460px;
 }
+.news .news-l:nth-child(2){
+    margin-left:10px;
+}
+.news .news-l:nth-child(3){
+    margin-left:10px;
+}
 .news-l{
     width: 393px;
     height:380px;
