@@ -3,7 +3,7 @@
 ?>
 <div class="footer clearfix">
     <div class="copyright">
-        <div class="links w">
+        <div class="links w" style="width:1200px;">
             <a href="/">首页</a>
             <span>|</span>
             <a href="/index1.html">马陆葡萄价格</a>
@@ -23,7 +23,7 @@
             <a href="/notice">发货须知</a>
         </div>
     </div>
-    <div class="c-info">
+    <div class="c-info" style="width:1200px;">
         <p>版权所有 马陆葡萄直销网 （隶属于上海徽尚电子商务有限公司） 沪ICP备06038790号 Copyright 2007-2013 All Rights Reserved</p>
         @if($baseConfig)
         <p>地址:{{$baseConfig->address}}</p>

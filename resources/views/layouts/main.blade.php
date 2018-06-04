@@ -33,5 +33,14 @@
 @include('layouts.footer')
 @yield('css')
 @yield('script')
+<style>
+	.footer .links{
+		width:1200px;
+	}
+
+	.footer .c-info{
+		width:1200px;
+	}
+</style>
 </body>
 </html>

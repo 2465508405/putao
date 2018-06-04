@@ -63,6 +63,7 @@ li{
 }
 .header{
      background-color: #ffffff;
+     width:1200px;
 }
 .header-top-c{
     background-color: #F3F3F3;
@@ -103,6 +104,7 @@ li{
 .nav{
     height: 45px;
     background-color: #44b549;
+    width:1200px;
 }
 .nav-top{
     position: relative;
