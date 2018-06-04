@@ -2,7 +2,7 @@
     $baseConfig = \App\Models\BaseConfig::first();
 ?>
 <div class="footer clearfix">
-    <div class="copyright" style="width:1200px;">
+    <div class="copyright" style="min-width:1200px;">
         <div class="links w" style="width:1200px;">
             <a href="/">首页</a>
             <span>|</span>
