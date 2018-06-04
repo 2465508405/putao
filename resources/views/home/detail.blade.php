@@ -67,7 +67,7 @@
                                         </a>
                                     </div>
                                     <div class="rtext">
-                                        <div class="side3_title"><a href="/thread-/{{$article->id}}.html" target="_blank" >{{$article->title}}
+                                        <div class="side3_title"><a href="/thread-{{$article->id}}.html" target="_blank" >{{$article->title}}
                                             </a></div>
                                         <div class="side3_redu">{{$article->visit_num}}</div>
                                     </div>
