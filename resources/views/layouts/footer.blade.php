@@ -6,11 +6,9 @@
         <div class="links w" style="width:1200px;">
             <a href="/">首页</a>
             <span>|</span>
-            <a href="/index1.html">马陆葡萄价格</a>
+            <a href="/index2.html">马陆葡萄价格</a>
             <span>|</span>
-            <a href="/index2.html">马陆葡萄品种</a>
-            <span>|</span>
-            <a href="/index3.html">马陆葡萄采摘园</a>
+            <a href="/index9.html">马陆葡萄采摘园</a>
             <span>|</span>
             <a href="/index4.html">葡萄知识</a>
             <span>|</span>
