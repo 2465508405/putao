@@ -43,7 +43,7 @@
             <div class="main-r-n">
                 <ul>
                     @foreach($fourArticles as $article)
-                        <li><a href="/thread-{{$article->id}}.html">【公告】{{$article->title}}</a></li>
+                        <li><a href="/thread-{{$article->id}}.html">【公告】{{(mb_strlen($article->title)>=16)?mb_substr($article->title,0,15).'...':$article->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
