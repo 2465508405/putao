@@ -13,13 +13,13 @@ $categories = Category::where('base_id',1)->where('id','!=',$firstCategory->id)-
 <div class="header clearfix">
     <div class="w">
         <div class="logo">
-            <a href=""><img src="/images/logo.png" alt="马陆葡萄网" title="马陆葡萄网"></a>
+            <a href=""><img src="/images/logo.png" alt="马陆葡萄网" ></a>
         </div>
         <div class="logo-left">
-            <a href=""><img src="/images/luntan_bg.png" alt="马陆葡萄网" title="马陆葡萄网"></a>
+            <a href=""><img src="/images/luntan_bg.png" alt="马陆葡萄网" ></a>
         </div>
         <div class="logo-right">
-            <a href=""><img style="width:100px;height:100px;" src="/images/weixin.png" alt="马陆葡萄网" title="马陆葡萄网"></a>
+            <a href=""><img style="width:100px;height:100px;" src="/images/weixin.png" alt="马陆葡萄网"></a>
         </div>
     </div>
 </div>
