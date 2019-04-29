@@ -61,7 +61,7 @@ class HomeController extends Controller
         return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle]);
     }
 
-    public function goodsDetail($id){
+    public function goodsDetail(Request $request,$id){
         $goods = Goods::where('id',$id)->where('status',3)->first();
         $goods->visit_num = $goods->visit_num+1;
         $goods->save();
