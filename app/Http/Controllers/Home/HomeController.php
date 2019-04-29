@@ -23,7 +23,7 @@ class HomeController extends Controller
         $goods = Goods::where('status',3)->orderBy('created_at','desc')->get();
         $fourArticles = Article::where('category_id',$fourCategory->id)->where('status',3)->orderBy('created_at','desc')->take(8)->get();
         //友情链接
-        $links = Link::take(20)->get();
+        $links = Link::get();
         $baseConfig = BaseConfig::first();
         //广告展示
         $advertisements = Advertisement::where('status',3)->get();
