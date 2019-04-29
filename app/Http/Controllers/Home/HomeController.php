@@ -30,7 +30,7 @@ class HomeController extends Controller
         return view('home.index',['firstCategory'=>$firstCategory,'categories'=>$categories,'fourCategory'=>$fourCategory,'firstArticles'=>$firstArticles,'fourArticles'=>$fourArticles,'links'=>$links,'goods'=>$goods,'baseConfig'=>$baseConfig,'advertisements'=>$advertisements]);
     }
 
-    public function lists(Request $request,$id){
+    public function lists($id){
         $position = strpos($id, 's');;
 
         if($position < 0 || $position === false){
@@ -41,7 +41,7 @@ class HomeController extends Controller
             $id = substr($info, 0,strpos($info, 's'));
             $page = substr($info,strpos($info, 's')+1);
         }
-        $request->page = $page;
+//        $request->page = $page;
         $pageSize = 10;
         $category =  Category::where('id',$id)->first();
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
@@ -50,7 +50,7 @@ class HomeController extends Controller
         return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
     }
 
-    public function detail(Request $request,$id){
+    public function detail($id){
         $article = Article::where('id',$id)->first();
         $article->visit_num = $article->visit_num+1;
         $article->save();
@@ -61,7 +61,7 @@ class HomeController extends Controller
         return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle]);
     }
 
-    public function goodsDetail(Request $request,$id){
+    public function goodsDetail($id){
         $goods = Goods::where('id',$id)->where('status',3)->first();
         $goods->visit_num = $goods->visit_num+1;
         $goods->save();
