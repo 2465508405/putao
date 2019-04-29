@@ -31,7 +31,7 @@ Route::group(['domain' => '{account}.putao.com'], function () {
             return $home->index();
         }
     });
-    Route::get('g-{id}.html','Home\HomeController@goodsDetail');
+//    Route::get('g-{id}.html','Home\HomeController@goodsDetail');
 //    dd(3);
     Route::get('/index{id}.html', function ($account,$id) {
 //        dd($account);
