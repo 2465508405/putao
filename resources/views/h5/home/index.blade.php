@@ -28,7 +28,6 @@
                     <li><a href="/index10.html">付款</a></li>
                     <li><a href="/index10.html">说明</a></li>
                     <li><a href="/index10.html">须知</a></li>
-
                 </ul>
             </div>
         </div>
