@@ -13,7 +13,7 @@
 //Route::get('/','Home\HomeController@index');
 //Route::get('index{id}.html','Home\HomeController@lists');
 //Route::get('thread-{id}.html','Home\HomeController@detail');
-Route::get('g-{id}.html','Home\HomeController@goodsDetail');
+
 //Route::get('consult','Consult\ConsultController@index');
 //Route::get('instruction','Instruction\InstructionController@index');
 //Route::get('notice','Notice\NoticeController@index');
@@ -31,6 +31,7 @@ Route::group(['domain' => '{account}.putao.com'], function () {
             return $home->index();
         }
     });
+    Route::get('g-{id}.html','Home\HomeController@goodsDetail');
 //    dd(3);
     Route::get('/index{id}.html', function ($account,$id) {
 //        dd($account);
