@@ -10,52 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/','Home\HomeController@index');
-//Route::get('index{id}.html','Home\HomeController@lists');
-//Route::get('thread-{id}.html','Home\HomeController@detail');
+Route::get('/','Home\HomeController@index');
+Route::get('index{id}.html','Home\HomeController@lists');
+Route::get('thread-{id}.html','Home\HomeController@detail');
 Route::get('g-{id}.html','Home\HomeController@goodsDetail');
-//Route::get('consult','Consult\ConsultController@index');
-//Route::get('instruction','Instruction\InstructionController@index');
-//Route::get('notice','Notice\NoticeController@index');
-//Route::get('payment','Payment\PaymentController@index');
-//Route::get('about','About\AboutController@index');
-Route::group(['domain' => '{account}.putao.com'], function () {
-//    dd($_SERVER['REQUEST_URI']);
-    Route::get('/', function ($account) {
-//        dd($account);
-        $home = new App\Http\Controllers\Home\HomeController();
-        if($account == 'm'){
-            return $home->hindex();
-//            return view('h5.home.index');
-        }else{
-            return $home->index();
-        }
-    });
-//    dd(3);
-    Route::get('/index{id}.html', function ($account,$id) {
-//        dd($account);
-//        dd(1);
-        $home = new App\Http\Controllers\Home\HomeController();
-        if($account == 'm'){
-            return $home->hlist($id);
-//            return view('h5.home.index');
-        }else{
-            return $home->lists($id);
-        }
-    });
-    Route::get('/thread-{id}.html', function ($account,$id) {
-        $home = new App\Http\Controllers\Home\HomeController();
-        if($account == 'm'){
-            return $home->hdetail($id);
-//            return view('h5.home.index');
-        }else{
-            return $home->detail($id);
-        }
-    });
+Route::get('consult','Consult\ConsultController@index');
+Route::get('instruction','Instruction\InstructionController@index');
+Route::get('notice','Notice\NoticeController@index');
+Route::get('payment','Payment\PaymentController@index');
+Route::get('about','About\AboutController@index');
 
-    Route::get('consult','Consult\ConsultController@index');
-    Route::get('instruction','Instruction\InstructionController@index');
-    Route::get('notice','Notice\NoticeController@index');
-    Route::get('payment','Payment\PaymentController@index');
-    Route::get('about','About\AboutController@index');
-});
