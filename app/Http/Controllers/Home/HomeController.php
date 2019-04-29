@@ -63,6 +63,7 @@ class HomeController extends Controller
 
     public function goodsDetail(Request $request,$id){
         $goods = Goods::where('id',$id)->where('status',3)->first();
+        dd($id);
         $goods->visit_num = $goods->visit_num+1;
         $goods->save();
         $nextGoods = Goods::where('id',$id+1)->first();
