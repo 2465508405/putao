@@ -66,4 +66,31 @@ class PageUtil{
         //         <span>…</span>
         //         <a href="" class="pagination-last" title="尾页">249</a>
     }
+
+    public static function gethPage($currentPage,$totalNum,$pageSize,$id,$type){
+        $html = '';
+        $totalPage = ceil($totalNum/$pageSize);//总页数
+        if($totalPage <=1){
+            return $html = "<span class='pagination-curr'>首页</span>";
+        }
+        $html .= "<a href='/index{$id}{$type}1.html'>首页</a>";
+        if($currentPage >= 2){
+            $prePage = $currentPage-1;
+            $html .= "<a href='/index{$id}{$type}{$prePage}.html'>上一页</a>";
+        }
+        $nextPage = $currentPage+1;
+        if($currentPage+1 <= $totalPage){
+            $html .= "<a href='/index{$id}{$type}{$nextPage}.html' class='pagination-next'>下一页</a>";
+        }
+        $html .= "<a href='/index{$id}{$type}{$totalPage}.html' class='pagination-last' title='尾页'>尾页</a>";
+
+        return $html;
+        // <span class="pagination-curr">1</span>
+        //         <a href="">2</a>
+        //         <a href="">3</a>
+        //         <a href="">4</a>
+        //         <a href="">5</a>
+        //         <span>…</span>
+        //         <a href="" class="pagination-last" title="尾页">249</a>
+    }
 }
