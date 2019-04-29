@@ -31,7 +31,16 @@ Route::group(['domain' => '{account}.mlpt.cn'], function () {
             return $home->index();
         }
     });
-    Route::get('g-{id}.html','Home\HomeController@goodsDetail');
+    Route::get('g-{id}.html',function ($account,$id) {
+
+        $home = new App\Http\Controllers\Home\HomeController();
+        if($account == 'm'){
+            return $home->goodsDetail($id);
+//            return view('h5.home.index');
+        }else{
+            return $home->goodsDetail($id);
+        }
+    });
 //    dd(3);
     Route::get('/index{id}.html', function ($account,$id) {
 //        dd($account);
