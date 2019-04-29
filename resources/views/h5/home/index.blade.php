@@ -9,7 +9,7 @@
 @section('content')
     <div class="content_top">
         <div class="arrowl"><a href="/index"><img src="/h5/images/home.png" alt="首页" height="22"></a></div>
-        <div class="context">六安瓜片网</div>
+        <div class="context">马陆葡萄网</div>
         <div class="arrowr"><a href="#" class="more" id="dhmore"><img src="/h5/images/more.png" height="23"></a></div>
     </div>
     <div class="cnsnav">
@@ -18,19 +18,16 @@
                 <ul id="">
                     <li class="selimg"><a href="/">首页</a></li>
 
-                    <li><a href="/index6.html">资讯</a></li>
+                    <li><a href="/index2.html">价格</a></li>
 
-                    <li><a href="/index1.html">价格</a></li>
+                    <li><a href="/index4.html">知识</a></li>
 
-                    <li><a href="/index4.html">功效</a></li>
+                    <li><a href="/index9.html">采摘</a></li>
 
-                    <li><a href="/index10.html">种植</a></li>
-
-                    <li><a href="/index2.html">冲泡</a></li>
-
-                    <li><a href="/index11.html">图片</a></li>
-
-                    <li><a href="/index12.html">品牌</a></li>
+                    <li><a href="/index10.html">品种</a></li>
+                    <li><a href="/index10.html">付款</a></li>
+                    <li><a href="/index10.html">说明</a></li>
+                    <li><a href="/index10.html">须知</a></li>
 
                 </ul>
             </div>
@@ -39,13 +36,13 @@
     <header>
         <nav>
             <a target="_blank" href="/">首页</a>
-            <a href="/index6.html" >资讯</a>
-            <a href="/index1.html" >价格</a>
-            <a href="/index4.html" >功效</a>
-            <a href="/index10.html" >种植</a>
-            <a href="/index2.html" >冲泡</a>
-            <a href="/index11.html" >图片</a>
-            <a href="/index12.html" >品牌</a>
+            <a href="/index6.html" >价格</a>
+            <a href="/index1.html" >知识</a>
+            <a href="/index4.html" >采摘</a>
+            <a href="/index10.html" >品种</a>
+            <a href="/index2.html" >付款</a>
+            <a href="/index11.html" >说明</a>
+            <a href="/index12.html" >须知</a>
         </nav>
     </header>
     @foreach($news as $k => $new)
@@ -74,34 +71,6 @@
     </div>
 
     <!-- Tab切换（高度自适应示范） -->
-    <div id="tabBox1" class="tabBox">
-        <div class="hd">
-            <h3><a href="/index6.html" >资讯</a><span>News</span></h3>
-            <!--
-                <ul>
-              <li><a href="javascript:void(0)">政企</a></li><li><a href="javascript:void(0)">专题</a></li>
-            </ul>
-            -->
-        </div>
-        <div class="bd" id="tabBox1-bd">
-            <div class="con">
-                <!-- 高度自适应需添加外层 -->
-                <ul>
-                    @foreach($news as $new)
-                    <li><a href="/thread-{{$new->id}}.html" title="{{$new->title}}">{{$new->title}}</a></li>
-                    @endforeach
-                </ul>
-            </div><div class="con">
-                <!-- 高度自适应需添加外层 -->
-                <ul>
-                    @foreach($news as $new)
-                    <li><a href="/thread-{{$new->id}}.html" title="{{$new->title}}">{{$new->title}}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-    <a class="readMore" href="/index6.html">进入频道&gt;&gt;</a>
     <script type="text/javascript">
         TouchSlide( { slideCell:"#tabBox1",
             endFun:function(i){ //高度自适应
@@ -177,7 +146,7 @@
 
     <div id="tabBox3" class="tabBox">
         <div class="hd">
-            <h3><a href="/index4.html" >功效</a><span>Tech</span></h3>
+            <h3><a href="/index4.html" >知识</a><span>Tech</span></h3>
 
         </div>
         <div class="bd">
@@ -193,7 +162,7 @@
 
     <div id="tabBox4" class="tabBox">
         <div class="hd">
-            <h3><a href="/index10.html">种植</a><span></span></h3>
+            <h3><a href="/index10.html">采摘</a><span></span></h3>
 
         </div>
         <div class="bd">
@@ -207,35 +176,7 @@
     <a class="readMore" href="/index10.html">进入频道&gt;&gt;</a>
     <script type="text/javascript">TouchSlide( { slideCell:"#tabBox4" } );</script>
 
-    <div id="tabBox5" class="tabBox">
-        <div class="hd">
-            <h3><a href="/index2.html">冲泡</a><span></span></h3>
-        </div>
-        <div class="bd">
-            <ul>
-                @foreach($fillNews as $fill)
-                <li><a href="/index{{$fill->id}}.html" title="{{$fill->title}}">{{$fill->title}}</a></li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    <a class="readMore" href="/index2.html">进入频道&gt;&gt;</a>
-    <script type="text/javascript">TouchSlide( { slideCell:"#tabBox5" } );</script>
 
-    <div id="tabBox6" class="tabBox">
-        <div class="hd">
-            <h3><a href="/index12.html">品牌</a><span></span></h3>
-        </div>
-        <div class="bd">
-            <ul>
-                @foreach($brandNews as $brand)
-                <li><a href="/thread-{{$brand->id}}.html" title="{{$brand->title}}">{{$brand->title}}</a></li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    <a class="readMore" href="/index12.html">进入频道&gt;&gt;</a>
-    <script type="text/javascript">TouchSlide( { slideCell:"#tabBox6" } );</script>
     <!-- 效果导航 -->
     <div class="effectNav">
         <h3><a href="/">首页</a>&#160;&#160;&#160;|&#160;&#160;&#160;<a href="list.php?tid=60" >帮助</a></h3>
