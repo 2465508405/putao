@@ -58,7 +58,7 @@
         <div id="slider" class="swipe">
             <div class="swipe-wrap swiper-wrapper">
                 @foreach($goods as $img)
-                <div class="image swiper-slide" style="background:url({{env('IMG_URL')}}/{{$img->thumbPic}}) center no-repeat;background-size: cover;"> <a href="/g-{{$img->id}}.html" target="_blank"></a>
+                <div class="image swiper-slide" style="background:url({{env('IMG_URL')}}/{{$img->thumbPic}}) center no-repeat;background-size: cover;"> <a href="/g-{{$img->id}}.html"></a>
                     <div class="title">
                         <p>{{$img->title}}</p>
                     </div>
