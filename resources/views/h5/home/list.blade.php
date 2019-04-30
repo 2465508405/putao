@@ -37,7 +37,7 @@
     <!-- 元素开始 -->
     <div id="tabBox2" class="tabBox">
         <div class="hd">
-            <h2>当前位置：<a href='/'>六安瓜片</a> > <a href='/index{{$category->id}}.html'>{{$category->alias}}</a></h2>
+            <h2>当前位置：<a href='/'>马陆葡萄</a> > <a href='/index{{$category->id}}.html'>{{$category->alias}}</a></h2>
         </div>
         <div class="news_list">
             @foreach($articles as $article)

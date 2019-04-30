@@ -107,11 +107,17 @@ class HomeController extends Controller
         $pageSize = 8;
         $category =  Category::where('id',$id)->first();
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
+
         $articles = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->paginate($pageSize);
         $pageSize = PageUtil::gethPage($page,$articles->total(),$pageSize,$id,'s');
 
         if($id == 11){
             return view('h5.home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
+        }
+        if($id == 1){
+            $articles = Goods::where('status',3)->orderBy('created_at','desc')->paginate($pageSize);
+            $pageSize = PageUtil::gethPage($page,$articles->total(),$pageSize,$id,'s');
+            return view('h5.home.list1',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
         }
         return view('h5.home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
     }
