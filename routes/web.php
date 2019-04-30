@@ -62,10 +62,54 @@ Route::group(['domain' => '{account}.mlpt.cn'], function () {
             return $home->detail($id);
         }
     });
-
-    Route::get('consult','Consult\ConsultController@index');
-    Route::get('instruction','Instruction\InstructionController@index');
-    Route::get('notice','Notice\NoticeController@index');
-    Route::get('payment','Payment\PaymentController@index');
-    Route::get('about','About\AboutController@index');
+    Route::get('/consult', function ($account) {
+        $consult = new App\Http\Controllers\Consult\ConsultController();
+        if($account == 'm'){
+            return $consult->hindex();
+//            return view('h5.home.index');
+        }else{
+            return $consult->index();
+        }
+    });
+    Route::get('/instruction', function ($account) {
+        $inst = new App\Http\Controllers\Instruction\InstructionController();
+        if($account == 'm'){
+            return $inst->hindex();
+//            return view('h5.home.index');
+        }else{
+            return $inst->index();
+        }
+    });
+    Route::get('/notice', function ($account) {
+        $notice = new App\Http\Controllers\Notice\NoticeController();
+        if($account == 'm'){
+            return $notice->hindex();
+//            return view('h5.home.index');
+        }else{
+            return $notice->index();
+        }
+    });
+    Route::get('/payment', function ($account) {
+        $pay = new App\Http\Controllers\Payment\PaymentController();
+        if($account == 'm'){
+            return $pay->hindex();
+//            return view('h5.home.index');
+        }else{
+            return $pay->index();
+        }
+    });
+    Route::get('/about', function ($account) {
+        $about = new App\Http\Controllers\About\AboutController();
+        if($account == 'm'){
+            return $about->hindex();
+//            return view('h5.home.index');
+        }else{
+            return $about->index();
+        }
+    });
+//    Route::get('consult','Consult\ConsultController@index');
+//    Route::get('instruction','Instruction\InstructionController@index');
+//    Route::get('notice','Notice\NoticeController@index');
+//    Route::get('payment','Payment\PaymentController@index');
+//    Route::get('about','About\AboutController@index');
 });
