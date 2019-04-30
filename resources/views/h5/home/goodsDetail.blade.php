@@ -58,7 +58,7 @@
             <div class="con">
                 <ul>
                     @foreach($articles as $article)
-                    <li><a href="/thread-{{$article->id}}.html" title="{{$article->title}}">{{$article->title}}</a></li>
+                        <li><a href="/thread-{{$article->id}}.html" title="{{$article->title}}">{{$article->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
