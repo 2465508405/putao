@@ -10,7 +10,7 @@
 @endsection
 @section('content')
 <div class="content_top">
-    <div class="arrowl"><a href=""><img src="/h5/images/home.png" alt="首页" height="22"></a></div>
+    {{--<div class="arrowl"><a href=""><img src="/h5/images/home.png" alt="首页" height="22"></a></div>--}}
     <div class="context">{{$category->alias}}</div>
     <div class="arrowr"><a href="/" class="more" id="dhmore"><img src="/h5/images/more.png" height="23"></a></div>
 </div>
@@ -50,7 +50,7 @@
     </div>
 </div>
 <div class="pages pagination">
-    
+
 </div>
 <!-- 效果导航 -->
 <div class="effectNav">
