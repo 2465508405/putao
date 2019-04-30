@@ -139,7 +139,8 @@ class HomeController extends Controller
         $prevGoods = Goods::where('id',$id-1)->first();
         $category =  Category::where('id',1)->first();
         $categories = Category::where('base_id',1)->where('id','!=',1)->orderBy('number','desc')->take(3)->get();
-        return view('h5.home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category,'nextGoods'=>$nextGoods,'prevGoods'=>$prevGoods]);
+        $relateGoods = Goods::where('id','!=',$id)->where('status',3)->get();
+        return view('h5.home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category,'relateGoods'=>$relateGoods]);
     }
 
     public function isMobile()

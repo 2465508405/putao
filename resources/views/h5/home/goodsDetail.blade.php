@@ -34,13 +34,13 @@
 
     <main>
         <section>
-            <h3 class="headNew pa">{{$article->title}}</h3>
+            <h3 class="headNew pa">{{$goods->title}}</h3>
             <article class="pd10">
-                <div class="info">发布时间:<time>{{date('Y-m-d',strtotime($article->created_at))}}</time>&nbsp;&nbsp;浏览:{{$article->visit_num}}次&nbsp;&nbsp;作者:{{$article->author}}</div>
+                <div class="info">发布时间:<time>{{date('Y-m-d',strtotime($goods->created_at))}}</time>&nbsp;&nbsp;浏览:{{$goods->visit_num}}次&nbsp;&nbsp;作者:{{$goods->author}}</div>
                 <div class="ad_wap"></div>
                 <div class="content">
                     <?php
-                    echo htmlspecialchars_decode($article->content);
+                    echo htmlspecialchars_decode($goods->content);
                     ?>
                 </div>
                 <div class="page"><ul></ul></div>
@@ -57,8 +57,8 @@
         <div class="bd">
             <div class="con">
                 <ul>
-                    @foreach($articles as $article)
-                        <li><a href="/thread-{{$article->id}}.html" title="{{$article->title}}">{{$article->title}}</a></li>
+                    @foreach($relateGoods as $goods)
+                        <li><a href="/thread-{{$goods->id}}.html" title="{{$goods->title}}">{{$goods->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
