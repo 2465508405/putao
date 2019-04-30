@@ -92,7 +92,7 @@
             </ul>
         </div>
     </div>
-    <a class="readMore" href="/index1.html">进入频道&gt;&gt;</a>
+    <a class="readMore" href="/index2.html">进入频道&gt;&gt;</a>
     <script type="text/javascript">TouchSlide( { slideCell:"#tabBox2" } );</script>
 
     <div class="ad_wap"></div>
@@ -126,7 +126,7 @@
             </ul>
         </div>
     </div>
-    <a class="readMore" href="/index10.html">进入频道&gt;&gt;</a>
+    <a class="readMore" href="/index9.html">进入频道&gt;&gt;</a>
     <script type="text/javascript">TouchSlide( { slideCell:"#tabBox4" } );</script>
 
 
