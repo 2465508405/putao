@@ -19,7 +19,7 @@
 //Route::get('notice','Notice\NoticeController@index');
 //Route::get('payment','Payment\PaymentController@index');
 //Route::get('about','About\AboutController@index');
-Route::group(['domain' => '{account}.mlpt.com'], function () {
+Route::group(['domain' => '{account}.mlpt.cn'], function () {
 //    dd($_SERVER['REQUEST_URI']);
     Route::get('/', function ($account) {
 //        dd($account);
