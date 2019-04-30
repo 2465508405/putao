@@ -38,7 +38,7 @@ Route::group(['domain' => '{account}.mlpt.cn'], function () {
             return $home->goodsDetail($id);
 //            return view('h5.home.index');
         }else{
-            return $home->goodsDetail($id);
+            return $home->hGoodsDetail($id);
         }
     });
 //    dd(3);
