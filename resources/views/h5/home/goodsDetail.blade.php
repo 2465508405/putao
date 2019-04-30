@@ -1,8 +1,8 @@
 @extends('h5.layouts.main')
 @section('title')
-    <title>{{$article->title}}-马陆葡萄网</title>
-    <meta name="keywords" content="{{$article->meta_key_word}}" />
-    <meta name="description" content="{{$article->meta_description}}"/>
+    <title>{{$goods->title}}-马陆葡萄网</title>
+    <meta name="keywords" content="{{$goods->meta_key_word}}" />
+    <meta name="description" content="{{$goods->meta_description}}"/>
 @endsection
 @section('content')
     <div class="content_top">
