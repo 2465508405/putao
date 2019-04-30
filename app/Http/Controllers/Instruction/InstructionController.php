@@ -9,13 +9,13 @@ use App\Models\Category;
 use App\Models\Article;
 class InstructionController extends Controller
 {
-    public function index(Request $request){
+    public function index(){
         $instruction = Instruction::first();
         $categories = Category::where('base_id',1)->orderBy('number','desc')->limit(3)->get();
         return view('instruction.index',['instruction'=>$instruction,'categories'=>$categories]);
     }
 
-    public function hindex(Request $request){
+    public function hindex(){
         $instruction = Instruction::first();
         $data['related'] = $instruction;
         $articles = Article::where('category_id',2)->take(7)->get();

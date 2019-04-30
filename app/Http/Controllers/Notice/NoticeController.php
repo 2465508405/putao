@@ -9,12 +9,12 @@ use App\Models\Category;
 use App\Models\Article;
 class NoticeController extends Controller
 {
-    public function index(Request $request){
+    public function index(){
         $notice = Notice::first();
         $categories = Category::where('base_id',1)->orderBy('number','desc')->limit(3)->get();
         return view('notice.index',['notice'=>$notice,'categories'=>$categories]);
     }
-    public function hindex(Request $request){
+    public function hindex(){
         $notice = Notice::first();
         $data['related'] = $notice;
         $articles = Article::where('category_id',2)->take(7)->get();
