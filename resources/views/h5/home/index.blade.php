@@ -25,9 +25,9 @@
                     <li><a href="/index9.html">采摘</a></li>
 
                     <li><a href="/index10.html">品种</a></li>
-                    <li><a href="/index10.html">付款</a></li>
-                    <li><a href="/index10.html">说明</a></li>
-                    <li><a href="/index10.html">须知</a></li>
+                    <li><a href="/payment">付款</a></li>
+                    <li><a href="/instruction">说明</a></li>
+                    <li><a href="/about">须知</a></li>
                 </ul>
             </div>
         </div>
@@ -35,13 +35,13 @@
     <header>
         <nav>
             <a target="_blank" href="/">首页</a>
-            <a href="/index6.html" >价格</a>
-            <a href="/index1.html" >知识</a>
-            <a href="/index4.html" >采摘</a>
+            <a href="/index2.html" >价格</a>
+            <a href="/index4.html" >知识</a>
+            <a href="/index9.html" >采摘</a>
             <a href="/index10.html" >品种</a>
-            <a href="/index2.html" >付款</a>
-            <a href="/index11.html" >说明</a>
-            <a href="/index12.html" >须知</a>
+            <a href="/payment" >付款</a>
+            <a href="/instruction" >说明</a>
+            <a href="/about" >须知</a>
         </nav>
     </header>
     @foreach($news as $k => $new)
@@ -57,8 +57,8 @@
     <div class="imgSwipeMain">
         <div id="slider" class="swipe">
             <div class="swipe-wrap swiper-wrapper">
-                @foreach($imageNews as $img)
-                <div class="image swiper-slide" style="background:url({{env('IMG_URL')}}/{{$img->thumbPic}}) center no-repeat;background-size: cover;"> <a href="/thread-{{$img->id}}.html" target="_blank"></a>
+                @foreach($goods as $img)
+                <div class="image swiper-slide" style="background:url({{env('IMG_URL')}}/{{$img->thumbPic}}) center no-repeat;background-size: cover;"> <a href="/g-{{$img->id}}.html" target="_blank"></a>
                     <div class="title">
                         <p>{{$img->title}}</p>
                     </div>
@@ -78,56 +78,10 @@
                 if(i>0)bd.parentNode.style.transition="200ms";//添加动画效果
             }
         } );</script>
-    <!-- 多图滚动 -->
-    <div id="scrollBox" class="scrollBox">
-        <div class="bd">
-            <ul>
-            @foreach($imageNews as $ki => $image)
-                @if($ki <=1)
-                <li><a class="pic" href="/thread-{{$image->id}}.html"><img _src="{{env('IMG_URL')}}/{{$image->thumbPic}}" alt="{{$image->title}}" src="{{env('IMG_URL')}}/{{$image->thumbPic}}" /></a>
-                    <p>{{$image->title}}</p>
-                </li>
-                @endif
-            @endforeach
-            </ul>
-            <ul>
-                @foreach($imageNews as $ki => $image)
-                @if($ki >1 && $ki <=3)
-                <li><a class="pic" href="/thread-{{$image}}.html"><img _src="{{env('IMG_URL')}}/{{$image->thumbPic}}" alt="{{$image->title}}" src="{{env('IMG_URL')}}/{{$image->thumbPic}}" /></a>
-                    <p>{{$image->title}}</p>
-                </li>
-                @endif
-                @endforeach
-            </ul>
-            <ul>
-                @foreach($imageNews as $ki => $image)
-                    @if($ki >3)
-                        <li><a class="pic" href="/thread-{{$image->id}}.html"><img _src="{{env('IMG_URL')}}/{{$image->thumbPic}}" alt="{{$image->title}}" src="{{env('IMG_URL')}}/{{$image->thumbPic}}" /></a>
-                            <p>{{$image->title}}</p>
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
-        </div>
-        <div class="hd"> <span class="prev"></span>
-            <ul>
-            </ul>
-            <span class="next"></span> </div>
-    </div>
-    <!-- scrollBox E -->
-    <script type="text/javascript">
-        TouchSlide({
-            slideCell:"#scrollBox",
-            titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-            effect:"leftLoop",
-            autoPage:true, //自动分页
-            switchLoad:"_src" //切换加载，真实图片路径为"_src"
-        });
-    </script>
     <!-- Tab切换 -->
     <div id="tabBox2" class="tabBox">
         <div class="hd">
-            <h3><a href="/index1.html" >价格</a><span>Focus</span></h3>
+            <h3><a href="/index2.html" >价格</a><span>Focus</span></h3>
 
         </div>
         <div class="bd">
@@ -150,7 +104,7 @@
         </div>
         <div class="bd">
             <ul>
-                @foreach($effectNews as $effect)
+                @foreach($knowsNews as $effect)
                 <li><a href="/thread-{{$effect->id}}.html" title="{{$effect->title}}">{{$effect->title}}</a></li>
                 @endforeach
             </ul>
@@ -160,13 +114,13 @@
     <script type="text/javascript">TouchSlide( { slideCell:"#tabBox3" } );</script>
 
     <div id="tabBox4" class="tabBox">
-        <div class="hd">
-            <h3><a href="/index10.html">采摘</a><span></span></h3>
+            <div class="hd">
+            <h3><a href="/index9.html">采摘</a><span></span></h3>
 
         </div>
         <div class="bd">
             <ul>
-                @foreach($plantNews as $plant)
+                @foreach($czNews as $plant)
                 <li><a href="/thread-{{$plant->id}}.html" title="{{$plant->title}}">{{$plant->title}}</a></li>
                 @endforeach
             </ul>

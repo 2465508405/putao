@@ -75,13 +75,16 @@ class HomeController extends Controller
     public function hindex(){
 
         $data['news'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(7)->get();
+        $data['goods'] = Goods::where('status',3)->orderBy('created_at','desc')->get();
+//        dd($data['goods']);
         $data['knowNews'] = Article::where('category_id',9)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['priceNews'] = Article::where('category_id',1)->where('status',3)->OrderBy('id','desc')->take(7)->get();
+        $data['pzNews'] = Article::where('category_id',1)->where('status',3)->OrderBy('id','desc')->take(7)->get();//品种
+        $data['priceNews'] = Article::where('category_id',2)->where('status',3)->OrderBy('id','desc')->take(7)->get();//价格
         $data['fillNews'] = Article::where('category_id',2)->where('status',3)->OrderBy('id','desc')->take(7)->get();
         $data['brandNews'] = Article::where('category_id',12)->where('status',3)->OrderBy('id','desc')->take(7)->get();
         $data['studyNews'] = Article::where('category_id',13)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['plantNews'] = Article::where('category_id',10)->where('status',3)->OrderBy('id','desc')->take(6)->get();//种植新闻
-        $data['effectNews'] = Article::where('category_id',4)->where('status',3)->OrderBy('id','desc')->take(7)->get();
+        $data['czNews'] = Article::where('category_id',9)->where('status',3)->OrderBy('id','desc')->take(6)->get();//采摘
+        $data['knowsNews'] = Article::where('category_id',4)->where('status',3)->OrderBy('id','desc')->take(7)->get();//知识
         $data['imageNews'] = Article::where('category_id',11)->where('status',3)->OrderBy('id','desc')->take(6)->get();
         $data['lunbo'] = Advertisement::where('position_id',4)->get();
         $baseConfig = BaseConfig::first();
