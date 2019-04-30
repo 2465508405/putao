@@ -35,10 +35,10 @@ Route::group(['domain' => '{account}.mlpt.cn'], function () {
 
         $home = new App\Http\Controllers\Home\HomeController();
         if($account == 'm'){
-            return $home->goodsDetail($id);
+            return $home->hGoodsDetail($id);
 //            return view('h5.home.index');
         }else{
-            return $home->hGoodsDetail($id);
+            return $home->goodsDetail($id);
         }
     });
 //    dd(3);
