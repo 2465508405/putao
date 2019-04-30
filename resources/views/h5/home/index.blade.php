@@ -24,7 +24,7 @@
 
                     <li><a href="/index9.html">采摘</a></li>
 
-                    <li><a href="/index10.html">品种</a></li>
+                    <li><a href="/index1.html">品种</a></li>
                     <li><a href="/payment">付款</a></li>
                     <li><a href="/instruction">说明</a></li>
                     <li><a href="/about">须知</a></li>
@@ -132,8 +132,16 @@
 
     <!-- 效果导航 -->
     <div class="effectNav">
-        <h3><a href="/">首页</a>&#160;&#160;&#160;|&#160;&#160;&#160;<a href="list.php?tid=60" >帮助</a></h3>
-        <p>首页 | 资讯 | 价格 | 功效 | 种植 | 冲泡 | 图片 | 品牌</p>
+        <h3><a href="/">首页</a>&#160;&#160;&#160;|&#160;&#160;&#160;<a href="/" >帮助</a></h3>
+        <p><a target="_blank" href="/">首页</a> |
+            <a href="/index2.html" >价格</a> |
+            <a href="/index4.html" >知识</a> |
+            <a href="/index9.html" >采摘</a> |
+            <a href="/index1.html" >品种</a> |
+            <a href="/payment" >付款</a> |
+            <a href="/instruction" >说明</a> |
+            <a href="/about" >须知</a>
+        </p>
         <p></p>
     </div>
     <div id="goTopBtn"><img src="/h5/images/top.png" width="30"></div>
