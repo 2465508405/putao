@@ -6,8 +6,8 @@
 @endsection
 @section('content')
     <div class="content_top">
-        <div class="arrowl"><a href="/index{{$category->id}}.html"><img src="/h5/images/arrow_l.png" alt="返回栏目" height="22"></a></div>
-        <div class="context"><a href="/">首页</a> &#8226; <a href="/index{{$category->id}}.html">{{$category->alias}}</a> &#8226; 正文</div>
+        <div class="arrowl"><a href="/"><img src="/h5/images/arrow_l.png" alt="返回栏目" height="22"></a></div>
+        <div class="context"><a href="/">首页</a> &#8226; <a href="/">{{$category->alias}}</a> &#8226; 正文</div>
         <div class="arrowr"><a href="#" class="more" id="dhmore"><img src="/h5/images/more_1.png" height="23"></a></div>
     </div>
     <div class="cnsnav">
@@ -64,7 +64,7 @@
             </div>
         </div>
     </div>
-    <a class="readMore" href="/index{{$category->id}}.html">返回栏目&gt;&gt;</a>
+    <a class="readMore" href="/">返回首页&gt;&gt;</a>
     <div class="clear"></div>
     <div id="SOHUCS"></div>
     <script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="/h5/js/changyan_mobile.js">
