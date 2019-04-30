@@ -6,7 +6,7 @@
 @endsection
 @section('content')
     <div class="content_top">
-        <div class="arrowl"><a href="/"><img src="/h5/images/arrow_l.png" alt="返回栏目" height="22"></a></div>
+        <div class="arrowl"><a href="/"><img src="/h5/images/arrow_l.png" alt="返回首页" height="22"></a></div>
         <div class="context"><a href="/">首页</a> &#8226; <a href="/">{{$category->alias}}</a> &#8226; 正文</div>
         <div class="arrowr"><a href="#" class="more" id="dhmore"><img src="/h5/images/more_1.png" height="23"></a></div>
     </div>
