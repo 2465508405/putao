@@ -38,7 +38,7 @@
             <a href="/index2.html" >价格</a>
             <a href="/index4.html" >知识</a>
             <a href="/index9.html" >采摘</a>
-            <a href="/index10.html" >品种</a>
+            <a href="/index1.html" >品种</a>
             <a href="/payment" >付款</a>
             <a href="/instruction" >说明</a>
             <a href="/about" >须知</a>
