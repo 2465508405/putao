@@ -115,9 +115,9 @@ class HomeController extends Controller
             return view('h5.home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
         }
         if($id == 1){
-            $articles = Goods::where('status',3)->orderBy('created_at','desc')->paginate($pageSize);
-            $pageSize = PageUtil::gethPage($page,$articles->total(),$pageSize,$id,'s');
-            return view('h5.home.list1',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
+            $articles = Goods::where('status',3)->orderBy('created_at','desc')->get();
+//            $pageSize = PageUtil::gethPage($page,$articles->total(),$pageSize,$id,'s');
+            return view('h5.home.list1',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'page'=>$page]);
         }
         return view('h5.home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
     }
